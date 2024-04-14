@@ -77,7 +77,7 @@ $Animation a_it_idle			anims/it_idle			FPS 30 loop                              
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 $Sequence "ref"  						"a_idle" 																			Hidden
 $Sequence "look_poses_attacking"		"a_look_down" "a_look_mid" "a_look_up"												Hidden	Blend "ver_aims" 1 -1	blendwidth 3	Delta
-$Sequence "idle"						"a_run" "a_idle" "a_run"					"ACT_VM_IDLE" 1									Blend "move_x" -1 1		blendwidth 3	Loop	AddLayer "look_poses_attacking"
+$Sequence "idle"						"a_run" "a_idle" "a_run"					"ACT_VM_IDLE" 1									Blend "move_x" -1 1		blendwidth 3	Loop	AddLayer "look_poses_attacking" ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource 
 $Sequence "deploy"						"a_deploy"									"ACT_VM_DRAW" 1									Snap		Fadeout 0.2 Subtract a_idle 0 Delta	{ event 5004 1 "Crowbar.Deploy" }                                                                   ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 $Sequence "attack_01"					"a_attack_01"								"ACT_VM_PRIMARYATTACK" 1				Hidden
 $Sequence "attack_01_layer"				"al_attack_01"								"ACT_VM_SHOOT_LAYER" 1							Fadein 0.2	Fadeout 0.2	Subtract a_idle 0 Delta	{ event AE_CL_CREATE_PARTICLE_EFFECT 7 "weapon_melee_blur_crowbar follow_attachment attach_blur" }	ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource

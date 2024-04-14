@@ -67,7 +67,7 @@ $Animation a_it_idle			anims/it_idle			FPS 30 loop                              
 // I took the liberty to add "Subtract a_idle 0 Delta" to every visible $sequence to make blending happen. Delete where you don't want it.
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 $Sequence "aims"						"a_look_down" "a_look_mid" "a_look_up"												Hidden	Blend "ver_aims" 1 -1	blendwidth 3	Delta
-$Sequence "idle"						"a_run" "a_idle_01" "a_run"					"ACT_VM_IDLE" 1									Blend "move_x" -1 1		blendwidth 3	Loop	AddLayer "aims"
+$Sequence "idle"						"a_run" "a_idle_01" "a_run"					"ACT_VM_IDLE" 1									Blend "move_x" -1 1		blendwidth 3	Loop	AddLayer "aims" ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
 $Sequence "deploy"						"a_deploy"									"ACT_VM_DRAW" 1									Snap		Fadeout 0 	Subtract a_idle 0 Delta	{ event 5004 1 "Pitchfork.Deploy" }	ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 $Sequence "swing_s_w_01"				"a_swing_s_w_01"							"ACT_VM_PRIMARYATTACK" 5				Hidden
 $Sequence "swing_s_w_01_layer"			"al_swing_s_w_01"							"ACT_VM_SHOOT_LAYER" 5							Fadein 0 	Fadeout 0.2 Subtract a_idle 0 Delta	                                    ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource

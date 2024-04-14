@@ -255,7 +255,7 @@ $animation a_melee		anims/melee		fps 30
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 $Sequence "look_poses"		a_look_down a_look_mid a_look_up							Hidden	blend "ver_aims" 1 -1 	blendwidth 3	delta
 $Sequence "idle_raw" 		a_idle 														Hidden
-$Sequence "idle"			a_run a_idle a_run					"ACT_VM_IDLE" 1					blend "move_x" -1 1		blendwidth 3	addlayer "look_poses" loop
+$Sequence "idle"			a_run a_idle a_run					"ACT_VM_IDLE" 1					blend "move_x" -1 1		blendwidth 3	addlayer "look_poses" loop ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
 $Sequence "deploy_layer"	a_deploy							"ACT_VM_DEPLOY_LAYER" 1			snap		fadeout 0.2 subtract a_idle o delta ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
 $Sequence "melee_layer"		a_melee								"ACT_VM_MELEE_LAYER" 1			fadein 0.2	fadeout 0.2 subtract a_idle o delta ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
 

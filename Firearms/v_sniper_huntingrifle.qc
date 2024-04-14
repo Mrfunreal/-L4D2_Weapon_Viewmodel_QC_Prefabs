@@ -77,7 +77,7 @@ $Animation a_it_idle	anims/it_idle		FPS 30 loop                                 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 $Sequence "a_sniper_arms_vaims"					a_look_down a_look_mid a_look_up 	Hidden	blend "ver_aims" 1 -1	blendwidth 3 delta
-$Sequence "sniper_idle"							a_run a_idle a_run 							blend "move_x" -1 1		blendwidth 3 addlayer "a_sniper_arms_vaims" loop "ACT_VM_IDLE_SNIPER" 1
+$Sequence "sniper_idle"							a_run a_idle a_run 							blend "move_x" -1 1		blendwidth 3 addlayer "a_sniper_arms_vaims" loop "ACT_VM_IDLE_SNIPER" 1 ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
 
 $Sequence "sniper_pickup" 						a_look_mid "ACT_VM_PICKUP_SNIPER" 1 						Hidden	// Unused nonsense
 $Sequence "Sniper_pickup_layer" 				a_look_mid "ACT_VM_PICKUP_SNIPER_LAYER" 1 					Hidden	// Unused nonsense

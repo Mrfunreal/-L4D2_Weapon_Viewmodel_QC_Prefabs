@@ -65,7 +65,7 @@ $animation a_it_idle	anims/it_idle	fps 30 loop                                  
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 $Sequence "look_poses"						a_look_down a_look_mid a_look_up									Hidden	blend "ver_aims" 1 -1	blendwidth 3	delta
 $Sequence "idle_raw" 						a_idle																Hidden
-$Sequence "idle"							a_run a_idle a_run			"ACT_VM_IDLE" 1									blend "move_x" -1 1		blendwidth 3	addlayer "look_poses" loop
+$Sequence "idle"							a_run a_idle a_run			"ACT_VM_IDLE" 1									blend "move_x" -1 1		blendwidth 3	addlayer "look_poses" loop 																										ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
 $Sequence "use"								 a_use						"ACT_VM_PRIMARYATTACK" 1				Hidden
 $Sequence "use_layer"						al_use						"ACT_VM_PRIMARYATTACK_LAYER" 1					snap		fadeout 0.2	{ event 5004 9 "Adrenaline.CapOff" } { event 5004 19 "Adrenaline.NeedleOpen" } { event 5004 34 "Adrenaline.NeedleIn" }	subtract a_idle 0 delta ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
 $Sequence "deploy"							 a_deploy					"ACT_VM_DEPLOY" 1						Hidden

@@ -69,7 +69,7 @@ $Animation a_it_idle	anims/it_idle		FPS 30 loop                                 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 $Sequence "look_poses" 	a_look_down a_look_mid a_look_up 	Hidden	blend "ver_aims" 1 -1	blendwidth 3 delta
 $Sequence "idle_raw"	a_idle 								Hidden
-$Sequence "idle"		a_run a_idle a_run 							blend "move_x" -1 1		blendwidth 3 addlayer "look_poses" loop "ACT_VM_IDLE" 1
+$Sequence "idle"		a_run a_idle a_run 							blend "move_x" -1 1		blendwidth 3 addlayer "look_poses" loop "ACT_VM_IDLE" 1 ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
 
 $Sequence "awm_reload"			 a_reload	fadein 0.2	fadeout 0.2 					Hidden 	"ACT_VM_RELOAD" 1
 $Sequence "awm_reload_layer"	al_reload	fadein 0.2	fadeout 0.2 Subtract a_idle 0	Delta  	"ACT_VM_RELOAD_LAYER" 1			{	ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource

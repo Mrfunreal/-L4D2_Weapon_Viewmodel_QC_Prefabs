@@ -68,7 +68,7 @@ $Animation a_melee		anims/melee		FPS 30
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 $Sequence "look_poses"				"a_look_down" "a_look_mid" "a_look_up"										Hidden	Blend "ver_aims" 1 -1	blendwidth 3	Delta
 $Sequence "idle_raw" 				"a_idle" 																	Hidden
-$Sequence "idle"					"a_run" "a_idle" "a_run"				"ACT_VM_IDLE_GASCAN" 1						Blend "move_x" -1 1		blendwidth 3	Loop	AddLayer "look_poses"
+$Sequence "idle"					"a_run" "a_idle" "a_run"				"ACT_VM_IDLE_GASCAN" 1						Blend "move_x" -1 1		blendwidth 3	Loop	AddLayer "look_poses" ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
 $Sequence "deploy"					"a_deploy"								"ACT_VM_DEPLOY_GASCAN" 1			Hidden
 $Sequence "deploy_layer"			"al_deploy"								"ACT_VM_DEPLOY_GASCAN_LAYER" 1				Fadein 0.2 Fadeout 0.2	Subtract a_idle 0 Delta                 ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 $Sequence "melee"					"a_melee"								"ACT_VM_MELEE_GASCAN" 1				Hidden

@@ -67,7 +67,7 @@ $animation al_melee		anims/melee		fps 30
 // All Hidden sequences are the non_layers you don't need to see in HLMV. (Except for lookpose)
 // I took the liberty to add "Subtract a_idle 0 Delta" to every visible $sequence to make blending happen. Delete where you don't want it.
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-$Sequence "idle"			a_run a_idle a_run 						"ACT_VM_IDLE" 1						blend "move_x" -1 1		blendwidth 3 addlayer "idle_layer"	loop
+$Sequence "idle"			a_run a_idle a_run 						"ACT_VM_IDLE" 1						blend "move_x" -1 1		blendwidth 3 addlayer "idle_layer"	loop  						ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
 $Sequence "idle_layer"		a_look_down a_look_mid a_look_up									Hidden	blend "ver_aims" 1 -1 	blendwidth 3 delta
 $Sequence "deploy"			 a_deploy								"ACT_VM_DEPLOY" 1			Hidden
 $Sequence "deploy_layer"	al_deploy								"ACT_VM_DEPLOY_LAYER" 1				snap		fadeout 0.2 subtract a_idle 0 delta	{ event 5004 1 "Defibrillator.Deploy" }	ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource

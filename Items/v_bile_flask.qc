@@ -81,7 +81,7 @@ $animation a_it_idle	anims/it_idle	fps 30 loop                                  
 // I took the liberty to add "Subtract a_idle 0 Delta" to every visible $sequence to make blending happen. Delete where you don't want it.
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 $Sequence "a_molotov_arms_vaims"	a_look_down a_look_mid a_look_up													Hidden	blend "ver_aims" 1 -1	blendwidth 3	delta
-$Sequence "molotov_idle"			a_run a_idle a_run					"ACT_VM_IDLE_MOLOTOV" 1				        	     	blend "move_x" 1 -1		blendwidth 3	addlayer "a_molotov_arms_vaims"
+$Sequence "molotov_idle"			a_run a_idle a_run					"ACT_VM_IDLE_MOLOTOV" 1				        	     	blend "move_x" 1 -1		blendwidth 3	addlayer "a_molotov_arms_vaims" ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource 
 $Sequence "molotov_deploy"							 a_deploy			"ACT_VM_DEPLOY_MOLOTOV" 1			        	Hidden
 $Sequence "molotov_deploy_layer"					al_deploy			"ACT_VM_DEPLOY_MOLOTOV_LAYER" 1		        			snap		fadeout 0.6 subtract a_idle 0 delta	ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
 $Sequence "molotov_pullpin"							 a_pullpin			"ACT_VM_PULLPIN_MOLOTOV" 1			        	Hidden

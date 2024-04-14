@@ -73,7 +73,7 @@ $Animation a_it_idle				anims/it_idle				FPS 30 loop                            
 // I took the liberty to add "Subtract a_idle 0 Delta" to every visible $sequence to make blending happen. Delete where you don't want it.
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 $Sequence "look_poses"					"a_look_down" "a_look_mid" "a_look_up"												Hidden	Blend "ver_aims" 1 -1	blendwidth 3	Delta
-$Sequence "idle"						"a_run" "a_idle"  "a_run"					"ACT_VM_IDLE" 1									Blend "move_x" -1 1		blendwidth 3	Loop	AddLayer "look_poses"
+$Sequence "idle"						"a_run" "a_idle"  "a_run"					"ACT_VM_IDLE" 1									Blend "move_x" -1 1		blendwidth 3	Loop	AddLayer "look_poses"																				ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource 
 $Sequence "deploy"						"a_deploy"									"ACT_VM_DRAW" 1									Snap		Fadeout 0.2 Subtract a_idle 0 Delta	{ event 5004 1 "Tonfa.Deploy" }																		ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 $Sequence "swing_e_w"					"a_swing_e_w"								"ACT_VM_PRIMARYATTACK" 1				Hidden
 $Sequence "swing_e_w_layer"				"al_swing_e_w"								"ACT_VM_SHOOT_LAYER" 1							Fadein 0.2	Fadeout 0.2 Subtract a_idle 0 Delta	{ event AE_CL_CREATE_PARTICLE_EFFECT 8 "weapon_melee_blur_machete follow_attachment attach_blur" }	ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource

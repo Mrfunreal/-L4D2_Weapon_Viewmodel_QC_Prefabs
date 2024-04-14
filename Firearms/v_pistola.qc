@@ -69,7 +69,7 @@ $Animation a_it_idle		anims/it_idle		FPS 30 loop                                
 // All Hidden sequences are the non_layers you don't need to see in HLMV.
 // I took the liberty to add "Subtract a_idle 0 Delta" to every visible $sequence to make blending happen. Delete where you don't want it.
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-$Sequence "idle"			a_run a_idle a_run 							blend "move_x" -1 1		blendwidth 3 addlayer "idle_layer" loop "ACT_VM_IDLE" 1
+$Sequence "idle"			a_run a_idle a_run 							blend "move_x" -1 1		blendwidth 3 addlayer "idle_layer" loop "ACT_VM_IDLE" 1 ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
 $Sequence "idle_layer" 		a_look_down a_look_mid a_look_up 	Hidden	blend "ver_aims" 1 -1	blendwidth 3 delta		//This is actually the lookpose :3
 
 $Sequence "deploy" 				 a_deploy	Snap		fadeout 0.2						Hidden "ACT_VM_DEPLOY" 1

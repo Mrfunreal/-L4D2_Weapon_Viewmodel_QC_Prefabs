@@ -75,7 +75,7 @@ $Animation a_it_idle		anims/it_idle		FPS 30 loop                                
 // All Hidden sequences are the non_layers you don't need to see in HLMV.
 // I took the liberty to add "Subtract a_idle 0 Delta" to every visible $sequence to make blending happen. Delete where you don't want it.
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-$Sequence "idle"			a_run a_idle a_run 							blend "move_x" -1 1		blendwidth 3 addlayer "idle_layer" loop "ACT_VM_IDLE" 1
+$Sequence "idle"			a_run a_idle a_run 							blend "move_x" -1 1		blendwidth 3 addlayer "idle_layer" loop "ACT_VM_IDLE" 1 ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 $Sequence "idle_layer" 		a_look_down a_look_mid a_look_up 	Hidden	blend "ver_aims" 1 -1	blendwidth 3 delta		//This is actually the lookpose :3
 
 $Sequence "deploy" 				 a_deploy	Snap		fadeout 0.2						Hidden "ACT_VM_DEPLOY" 1
@@ -88,7 +88,7 @@ $Sequence "deploy_layer"		al_deploy 	Snap		fadeout 0.2 Subtract a_idle 0	Delta  
 $Sequence "fire" 				 a_fire		fadein 0.1	fadeout 0.2 					Hidden 	"ACT_VM_PRIMARYATTACK" 1
 $Sequence "fire_layer"			al_fire		fadein 0.1	fadeout 0.2 Subtract a_idle 0	Delta  	"ACT_VM_PRIMARYATTACK_LAYER" 1		{	ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 	{ event AE_MUZZLEFLASH 0 "1" }
-	{ event AE_CL_CREATE_PARTICLE_BRASS 1 "weapon_shell_casing_9mm_L4D2_fp shell" }
+	{ event AE_CL_CREATE_PARTICLE_BRASS 1 "weapon_shell_casing_desert_eagle_fp shell" }
 }
 
 $Sequence "reload"				 a_reload	fadein 0.2	fadeout 0.2 					Hidden 	"ACT_VM_RELOAD" 1
@@ -98,18 +98,18 @@ $Sequence "reload_layer" 		al_reload	fadein 0.2	fadeout 0.2 Subtract a_idle 0	De
 	{ event 5004 36 "Magnum.ClipLocked" }
 }
 
-$Sequence "reload_empty"		 a_reload_empty	fadein 0.2	fadeout 0.2 					Hidden 	"ACT_VM_RELOAD_EMPTY" 1
-$Sequence "reload_empty_layer"	al_reload_empty	fadein 0.2	fadeout 0.2 Subtract a_idle 0	Delta  	"ACT_VM_RELOAD_EMPTY_LAYER" 1	{	ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
+$Sequence "reload_empty"		 a_reload_empty	fadein 0	fadeout 0.2 					Hidden 	"ACT_VM_RELOAD_EMPTY" 1
+$Sequence "reload_empty_layer"	al_reload_empty	fadein 0	fadeout 0.2 Subtract a_idle 0	Delta  	"ACT_VM_RELOAD_EMPTY_LAYER" 1	{	ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 	{ event 5004 10 "Magnum.ClipOut" }
 	{ event 5004 34 "Magnum.ClipIn" }
 	{ event 5004 36 "Magnum.ClipLocked" }
 	{ event 5004 45 "Magnum.SlideForward" }
 }
 
-$Sequence "fire_last" 			 a_fire_last		fadein 0.1	fadeout 0.2 					Hidden 	//Has no activity
-$Sequence "fire_last_layer"		al_fire_last		fadein 0.1	fadeout 0.2 Subtract a_idle 0	Delta  	"ACT_VM_DRYFIRE" 1			{	ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
+$Sequence "fire_last" 			 a_fire_last		fadein 0.1	fadeout 0 					Hidden 	//Has no activity
+$Sequence "fire_last_layer"		al_fire_last		fadein 0.1	fadeout 0 Subtract a_idle 0	Delta  	"ACT_VM_DRYFIRE" 1			{	ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 	{ event AE_MUZZLEFLASH 0 "1" }
-	{ event AE_CL_CREATE_PARTICLE_BRASS 1 "weapon_shell_casing_9mm_L4D2_fp shell" }
+	{ event AE_CL_CREATE_PARTICLE_BRASS 1 "weapon_shell_casing_desert_eagle_fp shell" }
 }
 
 $Sequence "melee"		 		 a_melee	fadein 0	fadeout 0.2 					Hidden 	"ACT_VM_MELEE" 1

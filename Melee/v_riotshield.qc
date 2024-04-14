@@ -77,7 +77,7 @@ $Animation a_secondary_swing	anims/secondary_swing	FPS 30
 // I took the liberty to add "Subtract a_idle 0 Delta" to every visible $sequence to make blending happen. Delete where you don't want it.
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Because the riotshield is dropped so early in development, it doesn't have lookposes. I'll just add them to the bottom so you still got them.
-$Sequence "idle"						"a_run" "a_idle" "a_run"					"ACT_VM_IDLE" 1									Blend "move_x" -1 1	blendwidth 3 Loop	AddLayer "aims"
+$Sequence "idle"						"a_run" "a_idle" "a_run"					"ACT_VM_IDLE" 1									Blend "move_x" -1 1	blendwidth 3 Loop	AddLayer "aims" ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
 $Sequence "deploy"						"a_deploy"									"ACT_VM_DRAW" 1									Snap		Fadeout 0.2	Subtract a_idle 0 Delta  ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 $Sequence "swing_e_w"					"a_swing_e_w"								"ACT_VM_PRIMARYATTACK" 2				Hidden
 $Sequence "swing_e_w_layer"				"al_swing_e_w"								"ACT_VM_SHOOT_LAYER" 1							Fadein 0.2	Fadeout 0.2	Subtract a_idle 0 Delta  ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource

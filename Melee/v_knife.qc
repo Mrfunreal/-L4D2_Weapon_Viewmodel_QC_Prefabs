@@ -67,7 +67,7 @@ $Animation a_melee			anims/melee		FPS 30
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Idle2 as it is, is unused. You need workarounds to make actual fidgets.
 $Sequence "look_poses"					"a_look_down" "a_look_mid" "a_look_up"											Hidden	Blend "ver_aims" 1 -1	blendwidth 3	Delta
-$Sequence "idle1"						"a_run" "a_idle" "a_run"					"ACT_VM_IDLE" 1								Blend "move_x" -1 1		blendwidth 3	Loop	AddLayer "look_poses"
+$Sequence "idle1"						"a_run" "a_idle" "a_run"					"ACT_VM_IDLE" 1								Blend "move_x" -1 1		blendwidth 3	Loop	AddLayer "look_poses" ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource 
 $Sequence "idle2"						"a_run" "a_idle" "a_run"					"ACT_VM_FIDGET" 1							Blend "move_x" -1 1		blendwidth 3	Loop	AddLayer "look_poses"
 $Sequence "deploy_layer"				"al_deploy"									"ACT_VM_DRAW" 1								Snap		Fadeout 0.2	Subtract a_idle 0 Delta	{ event 5004 1 "Weapon_Knife.Deploy" }	ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 $Sequence "midslash1"					"a_midslash1"								"ACT_VM_HITRIGHT" 1							Fadein 0.2 	Fadeout 0.2	Subtract a_idle 0 Delta	                                        ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
