@@ -1,4 +1,4 @@
-// Created by MrFunreal. 
+// Created by MrFunreal.  
 // Btw, the gnome's worldmodel is "props_junk\gnome.mdl"
 
 // Note: I would HEAVILY reccomend you to move the $model line to the very bottom of the entire qc file.
@@ -45,7 +45,7 @@ $Animation a_look_mid	anims/lookpose	frames 1 1 subtract a_idle  0
 $Animation a_look_up	anims/lookpose	frames 2 2 subtract a_idle  0
 $Animation a_run		anims/run		loop
 
-// Once you set all the following $Animation's up (including the helping hands), Duplicate them and change the suffix from A_ to AL_.
+// Once you set all the following $Animation's up (including the helping hands), Duplicate them and change the prefix from A_ to AL_.
 // So you'll have two animation blocks identical, except for the prefix. Like A_Deploy and AL_Depoloy.
 $Animation a_deploy		anims/deploy	FPS 30
 $Animation a_melee		anims/melee		FPS 30
