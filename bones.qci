@@ -1,5 +1,5 @@
-// This qci holds al lshared arm bones for all weapons.
-// You must not edit this in any way shape or form!
+// This model holds all shared definebones for all weapons.
+// Don't you even THINK about touching any of this!
 $DefineBone "ValveBiped.ValveBiped" 			"" 								0 0 0 0 0 89.999975 0 0 0 0 0 0
 $DefineBone "ValveBiped.Bip01" 					"ValveBiped.ValveBiped" 		0 37.739231 -0.516773 0 0 0 0 0 0 0 0 0
 $DefineBone "ValveBiped.Camera" 				"ValveBiped.ValveBiped" 		0 56.084805 0 0 0 0 0 0 0 0 0 0

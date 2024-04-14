@@ -48,8 +48,9 @@ $Animation a_run					anims/run					loop
 // Swinghard animations are not used in L4D2. But mods can unlock them. You might want to animate them anyways. Who knows.
 // Secondary_Swing is the "push back" animation to stumble the CI.
 
-// Once you set all the following $Animation's up (including the helping hands), Duplicate them and change the prefix from A_ to AL_.
-// So you'll have two animation blocks identical, except for the prefix. Like A_Deploy and AL_Depoloy.
+// Once you set the FPS or other stuff in all the following $animation lines below, make of copy of them and change the prefix of the copy from A_ to AL_!
+// That way your non_layer and _layer sequences will have the same settings, while also preventing a nasty bug from appearing.
+// I could have set these up for you beforehand, but i myself always edit the FPS, so i would always need to edit two lines for that. Just duping and renaming is quicker.
 $Animation a_deploy					anims/deploy				FPS 24
 $Animation a_swing_e_w				anims/swing_e_w				FPS 40
 $Animation a_swing_e_w_02			anims/swing_e_w_02			FPS 40
