@@ -62,7 +62,7 @@ $animation a_run		anims/run.smd		loop
 // Once you set the FPS or other stuff in all the following $animation lines below, make of copy of them and change the prefix of the copy from A_ to AL_!
 // That way your non_layer and _layer sequences will have the same settings, while also preventing a nasty bug from appearing.
 // I could have set these up for you beforehand, but i myself always edit the FPS, so i would always need to edit two lines for that. Just duping and renaming is quicker.
-$animation a_idle_dry		anims/idle_dry		FPS 30 frames 0 0 loop //this dry idle is a simple pose blended onto idle, just like all other firing anims would be.
+$animation a_idle_dry		anims/idle_dry		FPS 30 frames 0 0 loop //This is a one frame animation of the idle pose with the slide pulled back.
 $animation a_deploy 		anims/deploy		FPS 30
 $animation a_fire_r			anims/fire_r		FPS 34
 $animation a_fire_l			anims/fire_l		FPS 34
