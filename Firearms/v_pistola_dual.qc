@@ -140,7 +140,7 @@ $Sequence "fire_last_left_layer"		al_fire_l_last	fadein 0.1	fadeout 0.2 Subtract
 }
 
 $Sequence "dry_right_idle"				 a_idle_dry		fadein 0.2	fadeout 0.2						Hidden
-$Sequence "dry_right_idle_layer"		al_idle_dry		fadein 0.2	fadeout 0.2	Subtract a_idle 0	Delta	"ACT_VM_IDLE_LOWERED" 1 			{	ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
+$Sequence "dry_right_idle_layer"		al_idle_dry		fadein 0.2	fadeout 0.2	Subtract a_idle 0	Delta	"ACT_VM_IDLE_LOWERED" 1 				ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
 
 $Sequence "melee"		 				 a_melee		fadein 0	fadeout 0.2 					Hidden 	"ACT_VM_MELEE" 1
 $Sequence "melee_layer"  				al_melee		fadein 0	fadeout 0.2 Subtract a_idle 0 	Delta  	"ACT_VM_MELEE_LAYER" 1				ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
