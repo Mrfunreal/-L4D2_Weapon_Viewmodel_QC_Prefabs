@@ -100,7 +100,7 @@ $Sequence "fire_right_layer"			al_fire_r		fadein 0.1	fadeout 0.2 Subtract a_idle
 }
 
 $Sequence "fire_left" 					 a_fire_l		fadein 0.1	fadeout 0.2 					Hidden 	"ACT_VM_SECONDARYATTACK" 1
-$Sequence "fire_right_layer"			al_fire_l		fadein 0.1	fadeout 0.2 Subtract a_idle 0	Delta  	"ACT_VM_SECONDARYATTACK_LAYER" 1	{	ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
+$Sequence "fire_left_layer"				al_fire_l		fadein 0.1	fadeout 0.2 Subtract a_idle 0	Delta  	"ACT_VM_SECONDARYATTACK_LAYER" 1	{	ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
 	{ event AE_MUZZLEFLASH 0 "1" }
 	{ event AE_CL_CREATE_PARTICLE_BRASS 1 "weapon_shell_casing_9mm_L4D2_fp shell_l" }
 }
