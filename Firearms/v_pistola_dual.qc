@@ -105,8 +105,8 @@ $Sequence "fire_left_layer"				al_fire_l		fadein 0.1	fadeout 0.2 Subtract a_idle
 	{ event AE_CL_CREATE_PARTICLE_BRASS 1 "weapon_shell_casing_9mm_L4D2_fp shell_l" }
 }
 
-$Sequence "reload"						 a_reload		fadein 0.2	fadeout 0.2 					Hidden 	"ACT_VM_RELOAD" 1
-$Sequence "reload_layer" 				al_reload		fadein 0.2	fadeout 0.2 Subtract a_idle 0	Delta  	"ACT_VM_RELOAD_LAYER" 1				{	ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
+$Sequence "reload"						 a_reload		fadein 0.05	fadeout 0.2 					Hidden 	"ACT_VM_RELOAD" 1
+$Sequence "reload_layer" 				al_reload		fadein 0.05	fadeout 0.2 Subtract a_idle 0	Delta  	"ACT_VM_RELOAD_LAYER" 1				{	ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
 	{ event 5004 7 "Dualpistol.ClipOut" }
 	{ event 5004 9 "Dualpistol.ClipOut" }
 	{ event 5004 27 "Dualpistol.ClipIn" }
@@ -115,8 +115,8 @@ $Sequence "reload_layer" 				al_reload		fadein 0.2	fadeout 0.2 Subtract a_idle 0
 	{ event 5004 55 "Dualpistol.ClipLocked" }
 }
 
-$Sequence "reload_empty"				 a_reload_empty		fadein 0.2	fadeout 0.2 					Hidden 	"ACT_VM_RELOAD_EMPTY" 1
-$Sequence "reload_empty_layer" 			al_reload_empty		fadein 0.2	fadeout 0.2 Subtract a_idle 0	Delta  	"ACT_VM_RELOAD_EMPTY_LAYER" 1		{	ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
+$Sequence "reload_empty"				 a_reload_empty	fadein 0	fadeout 0.2 					Hidden 	"ACT_VM_RELOAD_EMPTY" 1
+$Sequence "reload_empty_layer" 			al_reload_empty	fadein 0	fadeout 0.2 Subtract a_idle 0	Delta  	"ACT_VM_RELOAD_EMPTY_LAYER" 1		{	ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
 	{ event 5004 7 "Dualpistol.ClipOut" }
 	{ event 5004 9 "Dualpistol.ClipOut" }
 	{ event 5004 29 "Dualpistol.ClipIn" }
