@@ -62,7 +62,7 @@ $animation a_run		anims/run.smd		loop
 // Once you set the FPS or other stuff in all the following $animation lines below, make of copy of them and change the prefix of the copy from A_ to AL_!
 // That way your non_layer and _layer sequences will have the same settings, while also preventing a nasty bug from appearing.
 // I could have set these up for you beforehand, but i myself always edit the FPS, so i would always need to edit two lines for that. Just duping and renaming is quicker.
-$animation a_idle_dry		anims/idle_dry		FPS 30 //this dry idle is a simple pose blended onto idle, just like all other firing anims would be.
+$animation a_idle_dry		anims/idle_dry		FPS 30 frames 0 0 loop //this dry idle is a simple pose blended onto idle, just like all other firing anims would be.
 $animation a_deploy 		anims/deploy		FPS 30
 $animation a_fire_r			anims/fire_r		FPS 34
 $animation a_fire_l			anims/fire_l		FPS 34
@@ -115,8 +115,8 @@ $Sequence "reload_layer" 				al_reload		fadein 0.2	fadeout 0.2 Subtract a_idle 0
 	{ event 5004 55 "Dualpistol.ClipLocked" }
 }
 
-$Sequence "reload_empty"				 a_reload		fadein 0.2	fadeout 0.2 					Hidden 	"ACT_VM_RELOAD_EMPTY" 1
-$Sequence "reload_empty_layer" 			al_reload		fadein 0.2	fadeout 0.2 Subtract a_idle 0	Delta  	"ACT_VM_RELOAD_EMPTY_LAYER" 1		{	ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
+$Sequence "reload_empty"				 a_reload_empty		fadein 0.2	fadeout 0.2 					Hidden 	"ACT_VM_RELOAD_EMPTY" 1
+$Sequence "reload_empty_layer" 			al_reload_empty		fadein 0.2	fadeout 0.2 Subtract a_idle 0	Delta  	"ACT_VM_RELOAD_EMPTY_LAYER" 1		{	ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
 	{ event 5004 7 "Dualpistol.ClipOut" }
 	{ event 5004 9 "Dualpistol.ClipOut" }
 	{ event 5004 29 "Dualpistol.ClipIn" }
@@ -127,20 +127,20 @@ $Sequence "reload_empty_layer" 			al_reload		fadein 0.2	fadeout 0.2 Subtract a_i
 	{ event 5004 65 "Dualpistol.SlideForward" }
 }
 
-$Sequence "fire_last_right" 			 a_fire_r_last	fadein 0.1	fadeout 0.2 					Hidden 	"ACT_VM_PRIMARYATTACK" 1
-$Sequence "fire_last_right_layer"		al_fire_r_last	fadein 0.1	fadeout 0.2 Subtract a_idle 0	Delta  	"ACT_VM_DRYFIRE" 1				{	ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
+$Sequence "fire_last_right" 			 a_fire_r_last	fadein 0.1	fadeout 0	 					Hidden 	"ACT_VM_PRIMARYATTACK" 1
+$Sequence "fire_last_right_layer"		al_fire_r_last	fadein 0.1	fadeout 0	 Subtract a_idle 0	Delta  	"ACT_VM_DRYFIRE" 1				{	ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
 	{ event AE_MUZZLEFLASH 0 "1" }
 	{ event AE_CL_CREATE_PARTICLE_BRASS 1 "weapon_shell_casing_9mm_L4D2_fp shell_r" }
 }
 
-$Sequence "fire_last_left" 			 	 a_fire_l_last	fadein 0.1	fadeout 0.2 					Hidden 	"ACT_VM_PRIMARYATTACK" 1
-$Sequence "fire_last_left_layer"		al_fire_l_last	fadein 0.1	fadeout 0.2 Subtract a_idle 0	Delta  	"ACT_VM_DRYFIRE_LEFT" 1			{	ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
+$Sequence "fire_last_left" 			 	 a_fire_l_last	fadein 0.1	fadeout 0	 					Hidden 	"ACT_VM_PRIMARYATTACK" 1
+$Sequence "fire_last_left_layer"		al_fire_l_last	fadein 0.1	fadeout 0	 Subtract a_idle 0	Delta  	"ACT_VM_DRYFIRE_LEFT" 1			{	ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
 	{ event AE_MUZZLEFLASH 0 "1" }
 	{ event AE_CL_CREATE_PARTICLE_BRASS 1 "weapon_shell_casing_9mm_L4D2_fp shell_l" }
 }
 
-$Sequence "dry_right_idle"				 a_idle_dry		fadein 0.2	fadeout 0.2						Hidden
-$Sequence "dry_right_idle_layer"		al_idle_dry		fadein 0.2	fadeout 0.2	Subtract a_idle 0	Delta	"ACT_VM_IDLE_LOWERED" 1 				ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
+$Sequence "dry_right_idle"				 a_idle_dry		fadein 0	fadeout 0						Hidden
+$Sequence "dry_right_idle_layer"		al_idle_dry		fadein 0	fadeout 0	Subtract a_idle 0	Delta	"ACT_VM_IDLE_LOWERED" 1 				ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
 
 $Sequence "melee"		 				 a_melee		fadein 0	fadeout 0.2 					Hidden 	"ACT_VM_MELEE" 1
 $Sequence "melee_layer"  				al_melee		fadein 0	fadeout 0.2 Subtract a_idle 0 	Delta  	"ACT_VM_MELEE_LAYER" 1				ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
