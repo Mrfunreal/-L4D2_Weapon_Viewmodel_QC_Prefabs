@@ -40,7 +40,7 @@ $PoseParameter "move_x" -1 1 loop 0
 
 // $ANIMATIONS - Make sure the actual animation names are as described in this qc!
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-$Animation a_idle					anims/idle 					loop ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
+$Animation a_idle					anims/idle 					loop		ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 $Animation a_look_down				anims/lookpose				frames 0 0 subtract a_idle  0
 $Animation a_look_mid				anims/lookpose				frames 1 1 subtract a_idle  0
 $Animation a_look_up				anims/lookpose				frames 2 2 subtract a_idle  0

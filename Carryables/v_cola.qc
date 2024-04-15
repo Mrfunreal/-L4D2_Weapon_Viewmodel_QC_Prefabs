@@ -236,7 +236,7 @@ $PoseParameter "move_x" -1 1 loop 0
 
 // $ANIMATIONS - Make sure the actual animation names are as described in this qc!
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-$animation a_idle		anims/idle 		loop ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
+$animation a_idle		anims/idle 		loop		ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
 $animation a_look_down	anims/lookpose	frames 0 0 subtract a_idle  0
 $animation a_look_mid	anims/lookpose	frames 1 1 subtract a_idle  0
 $animation a_look_up	anims/lookpose	frames 2 2 subtract a_idle  0
@@ -255,9 +255,9 @@ $animation a_melee		anims/melee		fps 30
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 $Sequence "look_poses"		a_look_down a_look_mid a_look_up							Hidden	blend "ver_aims" 1 -1 	blendwidth 3	delta
 $Sequence "idle_raw" 		a_idle 														Hidden
-$Sequence "idle"			a_run a_idle a_run					"ACT_VM_IDLE" 1					blend "move_x" -1 1		blendwidth 3	addlayer "look_poses" loop ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
-$Sequence "deploy_layer"	a_deploy							"ACT_VM_DEPLOY_LAYER" 1			snap		fadeout 0.2 subtract a_idle o delta ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
-$Sequence "melee_layer"		a_melee								"ACT_VM_MELEE_LAYER" 1			fadein 0.2	fadeout 0.2 subtract a_idle o delta ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
+$Sequence "idle"			a_run a_idle a_run					"ACT_VM_IDLE" 1					blend "move_x" -1 1		blendwidth 3	addlayer "look_poses" loop	ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
+$Sequence "deploy_layer"	a_deploy							"ACT_VM_DEPLOY_LAYER" 1			snap		Fadeout 0.2 subtract a_idle 0 delta						ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
+$Sequence "melee_layer"		a_melee								"ACT_VM_MELEE_LAYER" 1			Fadein 0.2	Fadeout 0.2 subtract a_idle 0 delta						ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
 
 // There's no helping hand anims. You could probably add some. But why bother :3
 //You can add new $SEQUENCES below here. But they'll be buggy when you play online.

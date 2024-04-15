@@ -38,7 +38,7 @@ $PoseParameter "move_x" -1 1 loop 0
 
 // $ANIMATIONS - Make sure the actual animation names are as described in this qc!
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-$animation a_idle		anims/idle 		loop ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
+$animation a_idle		anims/idle 		loop		ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
 $animation a_look_down	anims/lookpose	frames 0 0 subtract a_idle  0
 $animation a_look_mid	anims/lookpose	frames 1 1 subtract a_idle  0
 $animation a_look_up	anims/lookpose	frames 2 2 subtract a_idle  0
@@ -64,23 +64,23 @@ $animation a_it_idle	anims/it_idle	fps 30 loop                                  
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 $Sequence "look_poses"		a_look_down a_look_mid a_look_up 										Hidden	blend "ver_aims" 1 -1	blendwidth 3 delta
 $Sequence "idle_raw" 		a_idle																	Hidden
-$Sequence "idle"			a_run a_idle a_run					"ACT_VM_IDLE" 1								blend "move_x" -1 1		blendwidth 3 addlayer "look_poses" loop ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
+$Sequence "idle"			a_run a_idle a_run					"ACT_VM_IDLE" 1								blend "move_x" -1 1		blendwidth 3 addlayer "look_poses" loop		ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
 $Sequence "deploy"  		a_deploy							"ACT_VM_DEPLOY" 1 					Hidden
-$Sequence "deploy_layer"  	al_deploy							"ACT_VM_DEPLOY_LAYER" 1						snap 		fadeout 0.2 subtract a_idle 0 delta ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
+$Sequence "deploy_layer"  	al_deploy							"ACT_VM_DEPLOY_LAYER" 1						snap 		Fadeout 0.2 subtract a_idle 0 delta						ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
 $Sequence "melee"  			a_melee								"ACT_VM_MELEE" 1 					Hidden
-$Sequence "melee_layer"  	al_melee							"ACT_VM_MELEE_LAYER" 1						fadein 0.2 	fadeout 0.2 subtract a_idle 0 delta ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
+$Sequence "melee_layer"  	al_melee							"ACT_VM_MELEE_LAYER" 1						Fadein 0.2 	Fadeout 0.2 subtract a_idle 0 delta						ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
 //Extending Hands Begin
 $Sequence "helping_hand_extend" 		 a_hh_ext				"ACT_VM_HELPINGHAND_EXTEND" 1		Hidden
-$Sequence "helping_hand_extend_layer" 	al_hh_ext				"ACT_VM_HELPINGHAND_EXTEND_LAYER" 1			fadein 0.2 	fadeout 0
+$Sequence "helping_hand_extend_layer" 	al_hh_ext				"ACT_VM_HELPINGHAND_EXTEND_LAYER" 1			Fadein 0.2 	Fadeout 0
 $Sequence "helping_hand_loop" 			 a_hh_idle				"ACT_VM_HELPINGHAND_LOOP" 1 		Hidden
-$Sequence "helping_hand_loop_layer"		al_hh_idle				"ACT_VM_HELPINGHAND_LOOP_LAYER" 1			fadein 0.2 	fadeout 0.2 loop
+$Sequence "helping_hand_loop_layer"		al_hh_idle				"ACT_VM_HELPINGHAND_LOOP_LAYER" 1			Fadein 0.2 	Fadeout 0.2 loop
 $Sequence "helping_hand_retract"		 a_hh_ret				"ACT_VM_HELPINGHAND_RETRACT" 1		Hidden
-$Sequence "helping_hand_retract_layer" 	al_hh_ret				"ACT_VM_HELPINGHAND_RETRACT_LAYER" 1		fadein 0 	fadeout 0.2
+$Sequence "helping_hand_retract_layer" 	al_hh_ret				"ACT_VM_HELPINGHAND_RETRACT_LAYER" 1		Fadein 0 	Fadeout 0.2
 $Sequence "itempickup_extendr" 			 a_it_ext				"ACT_VM_ITEMPICKUP_EXTEND" 1 		Hidden
-$Sequence "itempickup_extend_layer" 	al_it_ext				"ACT_VM_ITEMPICKUP_EXTEND_LAYER" 1			fadein 0.2 	fadeout 0
+$Sequence "itempickup_extend_layer" 	al_it_ext				"ACT_VM_ITEMPICKUP_EXTEND_LAYER" 1			Fadein 0.2 	Fadeout 0
 $Sequence "itempickup_loop" 			 a_it_idle				"ACT_VM_ITEMPICKUP_LOOP" 1 			Hidden
-$Sequence "itempickup_loop_layer" 		al_it_idle				"ACT_VM_ITEMPICKUP_LOOP_LAYER" 1			fadein 0.2 	fadeout 0.2 loop
+$Sequence "itempickup_loop_layer" 		al_it_idle				"ACT_VM_ITEMPICKUP_LOOP_LAYER" 1			Fadein 0.2 	Fadeout 0.2 loop
 $Sequence "itempickup_retract" 			 a_it_ret				"ACT_VM_ITEMPICKUP_RETRACT_" 1		Hidden
-$Sequence "itempickup_retract_layer" 	al_it_ret				"ACT_VM_ITEMPICKUP_RETRACT_LAYER" 1			fadein 0	fadeout 0.2
+$Sequence "itempickup_retract_layer" 	al_it_ret				"ACT_VM_ITEMPICKUP_RETRACT_LAYER" 1			Fadein 0	Fadeout 0.2
 //Extending Hands End
 //You can add new $SEQUENCES below here. But they'll be buggy when you play online.

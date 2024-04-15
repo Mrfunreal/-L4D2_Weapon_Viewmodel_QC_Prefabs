@@ -34,7 +34,7 @@ $PoseParameter "move_x" -1 1 loop 0
 
 // $ANIMATIONS - Make sure the actual animation names are as described in this qc!
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-$Animation a_idle			anims/idle 		loop ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
+$Animation a_idle			anims/idle 		loop		ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 $Animation a_look_down		anims/lookpose	frames 0 0 subtract a_idle  0
 $Animation a_look_mid		anims/lookpose	frames 1 1 subtract a_idle  0
 $Animation a_look_up		anims/lookpose	frames 2 2 subtract a_idle  0
@@ -67,13 +67,13 @@ $Animation a_melee			anims/melee		FPS 30
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Idle2 as it is, is unused. You need workarounds to make actual fidgets.
 $Sequence "look_poses"					"a_look_down" "a_look_mid" "a_look_up"											Hidden	Blend "ver_aims" 1 -1	blendwidth 3	Delta
-$Sequence "idle1"						"a_run" "a_idle" "a_run"					"ACT_VM_IDLE" 1								Blend "move_x" -1 1		blendwidth 3	Loop	AddLayer "look_poses" ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource 
+$Sequence "idle1"						"a_run" "a_idle" "a_run"					"ACT_VM_IDLE" 1								Blend "move_x" -1 1		blendwidth 3	Loop	AddLayer "look_poses"					ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource 
 $Sequence "idle2"						"a_run" "a_idle" "a_run"					"ACT_VM_FIDGET" 1							Blend "move_x" -1 1		blendwidth 3	Loop	AddLayer "look_poses"
 $Sequence "deploy_layer"				"al_deploy"									"ACT_VM_DRAW" 1								Snap		Fadeout 0.2	Subtract a_idle 0 Delta	{ event 5004 1 "Weapon_Knife.Deploy" }	ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
-$Sequence "midslash1"					"a_midslash1"								"ACT_VM_HITRIGHT" 1							Fadein 0.2 	Fadeout 0.2	Subtract a_idle 0 Delta	                                        ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
+$Sequence "midslash1"					"a_midslash1"								"ACT_VM_HITRIGHT" 1							Fadein 0.2 	Fadeout 0.2	Subtract a_idle 0 Delta											ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 $Sequence "midslash1_layer"				"al_midslash1"								"ACT_VM_HITRIGHT_LAYER" 1 			HIDDEN //!
 $Sequence "melee"						"a_melee"									"ACT_VM_SECONDARYATTACK" 1			Hidden
-$Sequence "melee_layer"					"al_melee"									"ACT_VM_SECONDARYATTACK_LAYER" 1			Fadein 0.2 	Fadeout 0.2	Subtract a_idle 0 Delta	                                        ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
+$Sequence "melee_layer"					"al_melee"									"ACT_VM_SECONDARYATTACK_LAYER" 1			Fadein 0.2 	Fadeout 0.2	Subtract a_idle 0 Delta											ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 
 //Extending Hands Begin
 //	$Sequence "helping_hand_extend" 		 a_hh_ext	Fadein 0.2 	Fadeout 0 			"ACT_VM_HELPINGHAND_EXTEND" 1			Hidden

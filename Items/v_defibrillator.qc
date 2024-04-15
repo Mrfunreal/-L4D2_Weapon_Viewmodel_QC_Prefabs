@@ -38,7 +38,7 @@ $PoseParameter "move_x" -1 1 loop 0
 
 // $ANIMATIONS - Make sure the actual animation names are as described in this qc!
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-$animation a_idle		anims/idle 		loop ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
+$animation a_idle		anims/idle 		loop		ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
 $animation a_look_down	anims/lookpose	frames 0 0 subtract a_idle  0
 $animation a_look_mid	anims/lookpose	frames 1 1 subtract a_idle  0
 $animation a_look_up	anims/lookpose	frames 2 2 subtract a_idle  0
@@ -70,9 +70,9 @@ $animation al_melee		anims/melee		fps 30
 $Sequence "idle"			a_run a_idle a_run 						"ACT_VM_IDLE" 1						blend "move_x" -1 1		blendwidth 3 addlayer "idle_layer"	loop  						ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
 $Sequence "idle_layer"		a_look_down a_look_mid a_look_up									Hidden	blend "ver_aims" 1 -1 	blendwidth 3 delta
 $Sequence "deploy"			 a_deploy								"ACT_VM_DEPLOY" 1			Hidden
-$Sequence "deploy_layer"	al_deploy								"ACT_VM_DEPLOY_LAYER" 1				snap		fadeout 0.2 subtract a_idle 0 delta	{ event 5004 1 "Defibrillator.Deploy" }	ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
+$Sequence "deploy_layer"	al_deploy								"ACT_VM_DEPLOY_LAYER" 1				snap		Fadeout 0.2 subtract a_idle 0 delta	{ event 5004 1 "Defibrillator.Deploy" }	ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
 $Sequence "melee"			 a_melee								"ACT_VM_MELEE" 1			Hidden
-$Sequence "melee_layer"		al_melee								"ACT_VM_MELEE_LAYER" 1				fadein 0.2	fadeout 0.2 subtract a_idle 0 delta											ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
+$Sequence "melee_layer"		al_melee								"ACT_VM_MELEE_LAYER" 1				Fadein 0.2	Fadeout 0.2 subtract a_idle 0 delta											ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
 
 //Extending Hands Begin
 //	$Sequence "helping_hand_extend" 		 a_hh_ext	Fadein 0.2 	Fadeout 0 			"ACT_VM_HELPINGHAND_EXTEND" 1			Hidden

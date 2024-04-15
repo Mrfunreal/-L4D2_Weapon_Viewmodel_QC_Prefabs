@@ -53,7 +53,7 @@ $PoseParameter "move_x" -1 1 loop 0
 // $ANIMATIONS - Make sure the actual animation names are as described in this qc!
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // ikrules of the dial pistols are set up to use weapon bones Weapon_Right and Weapon_Left! Adjust if you need to!
-$animation a_idle		anims/idle 			loop ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
+$animation a_idle		anims/idle 			loop		ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
 $animation a_look_down	anims/lookpose		frames 0 0 subtract a_idle  0
 $animation a_look_mid	anims/lookpose		frames 1 1 subtract a_idle  0
 $animation a_look_up	anims/lookpose		frames 2 2 subtract a_idle  0
@@ -83,30 +83,30 @@ $Animation a_it_idle		anims/it_idle		FPS 30 loop                                
 // All Hidden sequences are the non_layers you don't need to see in HLMV.
 // I took the liberty to add "Subtract a_idle 0 Delta" to every visible $sequence to make blending happen. Delete where you don't want it.
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-$Sequence "idle"		a_run a_idle a_run 							blend "move_x" -1 1		blendwidth 3 addlayer "idle_layer" loop "ACT_VM_IDLE" 1 ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
+$Sequence "idle"		a_run a_idle a_run 							blend "move_x" -1 1		blendwidth 3 addlayer "idle_layer" loop "ACT_VM_IDLE" 1		ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
 $Sequence "idle_layer" 	a_look_down a_look_mid a_look_up 	Hidden	blend "ver_aims" 1 -1	blendwidth 3 delta		//This is actually the lookpose :3
 
-$Sequence "deploy" 						 a_deploy		Snap		fadeout 0.2						Hidden "ACT_VM_DEPLOY" 1
-$Sequence "deploy_layer"				al_deploy 		Snap		fadeout 0.2 Subtract a_idle 0	Delta  "ACT_VM_DEPLOY_LAYER" 1				{	ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
+$Sequence "deploy" 						 a_deploy		Snap		Fadeout 0.2						Hidden "ACT_VM_DEPLOY" 1
+$Sequence "deploy_layer"				al_deploy 		Snap		Fadeout 0.2 Subtract a_idle 0	Delta  "ACT_VM_DEPLOY_LAYER" 1				{		ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
 	{ event 5004 1 "Dualpistol.Deploy" }
 	{ event 5004 4 "Dualpistol.SlideBack" }
 	{ event 5004 14 "Dualpistol.SlideForward" }
 }
 
-$Sequence "fire_right" 					 a_fire_r		fadein 0.1	fadeout 0.2 					Hidden 	"ACT_VM_PRIMARYATTACK" 1
-$Sequence "fire_right_layer"			al_fire_r		fadein 0.1	fadeout 0.2 Subtract a_idle 0	Delta  	"ACT_VM_PRIMARYATTACK_LAYER" 1		{	ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
+$Sequence "fire_right" 					 a_fire_r		Fadein 0.1	Fadeout 0.2 					Hidden 	"ACT_VM_PRIMARYATTACK" 1
+$Sequence "fire_right_layer"			al_fire_r		Fadein 0.1	Fadeout 0.2 Subtract a_idle 0	Delta  	"ACT_VM_PRIMARYATTACK_LAYER" 1		{		ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
 	{ event AE_MUZZLEFLASH 0 "1" }
 	{ event AE_CL_CREATE_PARTICLE_BRASS 1 "weapon_shell_casing_9mm_L4D2_fp shell_r" }
 }
 
-$Sequence "fire_left" 					 a_fire_l		fadein 0.1	fadeout 0.2 					Hidden 	"ACT_VM_SECONDARYATTACK" 1
-$Sequence "fire_left_layer"				al_fire_l		fadein 0.1	fadeout 0.2 Subtract a_idle 0	Delta  	"ACT_VM_SECONDARYATTACK_LAYER" 1	{	ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
+$Sequence "fire_left" 					 a_fire_l		Fadein 0.1	Fadeout 0.2 					Hidden 	"ACT_VM_SECONDARYATTACK" 1
+$Sequence "fire_left_layer"				al_fire_l		Fadein 0.1	Fadeout 0.2 Subtract a_idle 0	Delta  	"ACT_VM_SECONDARYATTACK_LAYER" 1	{		ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
 	{ event AE_MUZZLEFLASH 0 "1" }
 	{ event AE_CL_CREATE_PARTICLE_BRASS 1 "weapon_shell_casing_9mm_L4D2_fp shell_l" }
 }
 
-$Sequence "reload"						 a_reload		fadein 0.05	fadeout 0.2 					Hidden 	"ACT_VM_RELOAD" 1
-$Sequence "reload_layer" 				al_reload		fadein 0.05	fadeout 0.2 Subtract a_idle 0	Delta  	"ACT_VM_RELOAD_LAYER" 1				{	ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
+$Sequence "reload"						 a_reload		Fadein 0.05	Fadeout 0.2 					Hidden 	"ACT_VM_RELOAD" 1
+$Sequence "reload_layer" 				al_reload		Fadein 0.05	Fadeout 0.2 Subtract a_idle 0	Delta  	"ACT_VM_RELOAD_LAYER" 1				{		ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
 	{ event 5004 7 "Dualpistol.ClipOut" }
 	{ event 5004 9 "Dualpistol.ClipOut" }
 	{ event 5004 27 "Dualpistol.ClipIn" }
@@ -115,49 +115,49 @@ $Sequence "reload_layer" 				al_reload		fadein 0.05	fadeout 0.2 Subtract a_idle 
 	{ event 5004 55 "Dualpistol.ClipLocked" }
 }
 
-$Sequence "reload_empty"				 a_reload_empty	fadein 0	fadeout 0.2 					Hidden 	"ACT_VM_RELOAD_EMPTY" 1
-$Sequence "reload_empty_layer" 			al_reload_empty	fadein 0	fadeout 0.2 Subtract a_idle 0	Delta  	"ACT_VM_RELOAD_EMPTY_LAYER" 1		{	ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
-	{ event 5004 7 "Dualpistol.ClipOut" }
-	{ event 5004 9 "Dualpistol.ClipOut" }
-	{ event 5004 29 "Dualpistol.ClipIn" }
-	{ event 5004 36 "Dualpistol.ClipLocked" }
-	{ event 5004 50 "Dualpistol.ClipIn" }
-	{ event 5004 53 "Dualpistol.ClipLocked" }
-	{ event 5004 63 "Dualpistol.SlideForward" }
-	{ event 5004 65 "Dualpistol.SlideForward" }
+$Sequence "reload_empty"				 a_reload_empty	Fadein 0	Fadeout 0.2 					Hidden 	"ACT_VM_RELOAD_EMPTY" 1
+$Sequence "reload_empty_layer" 			al_reload_empty	Fadein 0	Fadeout 0.2 Subtract a_idle 0	Delta  	"ACT_VM_RELOAD_EMPTY_LAYER" 1		{		ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
+	{ event 5004 7 "Dualpistol.ClipOut" 	}
+	{ event 5004 9 "Dualpistol.ClipOut" 	}
+	{ event 5004 29 "Dualpistol.ClipIn" 	}
+	{ event 5004 36 "Dualpistol.ClipLocked"	 }
+	{ event 5004 50 "Dualpistol.ClipIn" 	}
+	{ event 5004 53 "Dualpistol.ClipLocked"	 }
+	{ event 5004 63 "Dualpistol.SlideForward"	 }
+	{ event 5004 65 "Dualpistol.SlideForward"	 }
 }
 
-$Sequence "fire_last_right" 			 a_fire_r_last	fadein 0.1	fadeout 0	 					Hidden 	"ACT_VM_PRIMARYATTACK" 1
-$Sequence "fire_last_right_layer"		al_fire_r_last	fadein 0.1	fadeout 0	 Subtract a_idle 0	Delta  	"ACT_VM_DRYFIRE" 1				{	ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
+$Sequence "fire_last_right" 			 a_fire_r_last	Fadein 0.1	Fadeout 0	 					Hidden 	"ACT_VM_PRIMARYATTACK" 1
+$Sequence "fire_last_right_layer"		al_fire_r_last	Fadein 0.1	Fadeout 0	 Subtract a_idle 0	Delta  	"ACT_VM_DRYFIRE" 1					{		ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
 	{ event AE_MUZZLEFLASH 0 "1" }
 	{ event AE_CL_CREATE_PARTICLE_BRASS 1 "weapon_shell_casing_9mm_L4D2_fp shell_r" }
 }
 
-$Sequence "fire_last_left" 			 	 a_fire_l_last	fadein 0.1	fadeout 0	 					Hidden 	"ACT_VM_PRIMARYATTACK" 1
-$Sequence "fire_last_left_layer"		al_fire_l_last	fadein 0.1	fadeout 0	 Subtract a_idle 0	Delta  	"ACT_VM_DRYFIRE_LEFT" 1			{	ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
+$Sequence "fire_last_left" 			 	 a_fire_l_last	Fadein 0.1	Fadeout 0	 					Hidden 	"ACT_VM_PRIMARYATTACK" 1
+$Sequence "fire_last_left_layer"		al_fire_l_last	Fadein 0.1	Fadeout 0	 Subtract a_idle 0	Delta  	"ACT_VM_DRYFIRE_LEFT" 1				{		ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
 	{ event AE_MUZZLEFLASH 0 "1" }
 	{ event AE_CL_CREATE_PARTICLE_BRASS 1 "weapon_shell_casing_9mm_L4D2_fp shell_l" }
 }
 
-$Sequence "dry_right_idle"				 a_idle_dry		fadein 0	fadeout 0						Hidden
-$Sequence "dry_right_idle_layer"		al_idle_dry		fadein 0	fadeout 0	Subtract a_idle 0	Delta	"ACT_VM_IDLE_LOWERED" 1 				ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
+$Sequence "dry_right_idle"				 a_idle_dry		Fadein 0	Fadeout 0						Hidden
+$Sequence "dry_right_idle_layer"		al_idle_dry		Fadein 0	Fadeout 0	Subtract a_idle 0	Delta	"ACT_VM_IDLE_LOWERED" 1 					ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
 
-$Sequence "melee"		 				 a_melee		fadein 0	fadeout 0.2 					Hidden 	"ACT_VM_MELEE" 1
-$Sequence "melee_layer"  				al_melee		fadein 0	fadeout 0.2 Subtract a_idle 0 	Delta  	"ACT_VM_MELEE_LAYER" 1				ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
+$Sequence "melee"		 				 a_melee		Fadein 0	Fadeout 0.2 					Hidden 	"ACT_VM_MELEE" 1
+$Sequence "melee_layer"  				al_melee		Fadein 0	Fadeout 0.2 Subtract a_idle 0 	Delta  	"ACT_VM_MELEE_LAYER" 1						ikrule rhand touch Weapon_Right usesource ikrule lhand touch Weapon_Left usesource
 
 //Extending Hands Begin
-$Sequence "helping_hand_extend" 		 a_hh_ext	"ACT_VM_HELPINGHAND_EXTEND" 1 			fadein 0.2 	fadeout 0
-$Sequence "helping_hand_extend_layer" 	al_hh_ext	"ACT_VM_HELPINGHAND_EXTEND_LAYER" 1 	fadein 0.2 	fadeout 0 				{ event 5004 1 "DualPistol.HelpingHandExtend" }
-$Sequence "helping_hand_loop" 			 a_hh_idle	"ACT_VM_HELPINGHAND_LOOP" 1 			fadein 0.2 	fadeout 0.2 	loop
-$Sequence "helping_hand_loop_layer" 	al_hh_idle	"ACT_VM_HELPINGHAND_LOOP_LAYER" 1 		fadein 0.2 	fadeout 0.2 	loop
-$Sequence "helping_hand_retract" 		 a_hh_ret	"ACT_VM_HELPINGHAND_RETRACT" 1 			fadein 0 	fadeout 0.2
-$Sequence "helping_hand_retract_layer" 	al_hh_ret	"ACT_VM_HELPINGHAND_RETRACT_LAYER" 1 	fadein 0 	fadeout 0.2 			{ event 5004 1 "DualPistol.HelpingHandRetract" }
-$Sequence "item_extend" 				 a_it_ext	"ACT_VM_ITEMPICKUP_EXTEND" 1 			fadein 0.2 	fadeout 0
-$Sequence "item_extend_layer" 			al_it_ext	"ACT_VM_ITEMPICKUP_EXTEND_LAYER" 1 		fadein 0.2 	fadeout 0 				{ event 5004 1 "DualPistol.ItemPickupExtend" }
-$Sequence "item_loop" 					 a_it_idle	"ACT_VM_ITEMPICKUP_LOOP" 1 				fadein 0.2	fadeout 0.2 	loop
-$Sequence "item_loop_layer" 			al_it_idle	"ACT_VM_ITEMPICKUP_LOOP_LAYER" 1 		fadein 0.2 	fadeout 0.2 	loop
-$Sequence "item_retract" 				 a_it_ret	"ACT_VM_ITEMPICKUP_RETRACT" 1 			fadein 0 	fadeout 0.2
-$Sequence "item_retract_layer"  		al_it_ret	"ACT_VM_ITEMPICKUP_RETRACT_LAYER" 1 	fadein 0 	fadeout 0.2 			{ event 5004 1 "DualPistol.ItemPickupRetract" }
+$Sequence "helping_hand_extend" 		 a_hh_ext	"ACT_VM_HELPINGHAND_EXTEND" 1 			Hidden
+$Sequence "helping_hand_extend_layer" 	al_hh_ext	"ACT_VM_HELPINGHAND_EXTEND_LAYER" 1 			Fadein 0.2 	Fadeout 0 				{ event 5004 1 "DualPistol.HelpingHandExtend" }
+$Sequence "helping_hand_loop" 			 a_hh_idle	"ACT_VM_HELPINGHAND_LOOP" 1 			Hidden
+$Sequence "helping_hand_loop_layer" 	al_hh_idle	"ACT_VM_HELPINGHAND_LOOP_LAYER" 1 				Fadein 0.2 	Fadeout 0.2 	loop
+$Sequence "helping_hand_retract" 		 a_hh_ret	"ACT_VM_HELPINGHAND_RETRACT" 1 			Hidden
+$Sequence "helping_hand_retract_layer" 	al_hh_ret	"ACT_VM_HELPINGHAND_RETRACT_LAYER" 1 			Fadein 0 	Fadeout 0.2 			{ event 5004 1 "DualPistol.HelpingHandRetract" }
+$Sequence "item_extend" 				 a_it_ext	"ACT_VM_ITEMPICKUP_EXTEND" 1 			Hidden
+$Sequence "item_extend_layer" 			al_it_ext	"ACT_VM_ITEMPICKUP_EXTEND_LAYER" 1 				Fadein 0.2 	Fadeout 0 				{ event 5004 1 "DualPistol.ItemPickupExtend" }
+$Sequence "item_loop" 					 a_it_idle	"ACT_VM_ITEMPICKUP_LOOP" 1 				Hidden
+$Sequence "item_loop_layer" 			al_it_idle	"ACT_VM_ITEMPICKUP_LOOP_LAYER" 1 				Fadein 0.2 	Fadeout 0.2 	loop
+$Sequence "item_retract" 				 a_it_ret	"ACT_VM_ITEMPICKUP_RETRACT" 1 			Hidden
+$Sequence "item_retract_layer"  		al_it_ret	"ACT_VM_ITEMPICKUP_RETRACT_LAYER" 1 			Fadein 0 	Fadeout 0.2 			{ event 5004 1 "DualPistol.ItemPickupRetract" }
 //Extending Hands End
 
 //You can add new $SEQUENCES below here. But they'll be buggy when you play online.

@@ -52,7 +52,7 @@ $PoseParameter "move_x" -1 1 loop 0
 
 // $ANIMATIONS - Make sure the actual animation names are as described in this qc!
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-$animation a_idle		anims/idle 			loop ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
+$animation a_idle		anims/idle 			loop		ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 $animation a_look_down	anims/lookpose		frames 0 0 subtract a_idle  0
 $animation a_look_mid	anims/lookpose		frames 1 1 subtract a_idle  0
 $animation a_look_up	anims/lookpose		frames 2 2 subtract a_idle  0
@@ -79,23 +79,23 @@ $Animation a_it_idle	anims/it_idle		FPS 30 loop                                 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 $Sequence "look_poses" 		a_look_down a_look_mid a_look_up 	Hidden	blend "ver_aims" 1 -1	blendwidth 3 delta
 $Sequence "idle_raw"		a_idle 								Hidden
-$Sequence "idle"			a_run a_idle a_run 							blend "move_x" -1 1		blendwidth 3 addlayer "look_poses" loop "ACT_VM_IDLE" 1 ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
+$Sequence "idle"			a_run a_idle a_run 							blend "move_x" -1 1		blendwidth 3 addlayer "look_poses" loop "ACT_VM_IDLE" 1		ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
 
-$Sequence "deploy" 			 a_deploy	Snap		fadeout 0.2						Hidden "ACT_VM_DEPLOY" 1
-$Sequence "deploy_layer"	al_deploy 	Snap		fadeout 0.2 Subtract a_idle 0	Delta  "ACT_VM_DEPLOY_LAYER" 1			{	ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
+$Sequence "deploy" 			 a_deploy	Snap		Fadeout 0.2						Hidden "ACT_VM_DEPLOY" 1
+$Sequence "deploy_layer"	al_deploy 	Snap		Fadeout 0.2 Subtract a_idle 0	Delta  "ACT_VM_DEPLOY_LAYER" 1			{								ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 	{ event 5004 1 "SMG.Deploy" }
 	{ event 5004 10 "SMG.SlideBack" }
 	{ event 5004 20 "SMG.SlideForward" }
 }
 
-$Sequence "fire" 			 a_fire		fadein 0.1	fadeout 0.2 					Hidden 	"ACT_VM_PRIMARYATTACK" 1
-$Sequence "fire_layer"		al_fire		fadein 0.1	fadeout 0.2 Subtract a_idle 0	Delta  	"ACT_VM_PRIMARYATTACK_LAYER" 1	{	ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
+$Sequence "fire" 			 a_fire		Fadein 0.1	Fadeout 0.2 					Hidden 	"ACT_VM_PRIMARYATTACK" 1
+$Sequence "fire_layer"		al_fire		Fadein 0.1	Fadeout 0.2 Subtract a_idle 0	Delta  	"ACT_VM_PRIMARYATTACK_LAYER" 1	{								ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 	{ event AE_MUZZLEFLASH 0 "1" }
 	{ event AE_CL_CREATE_PARTICLE_BRASS 0 "weapon_shell_casing_9mm_fp shell" }
 }
 
-$Sequence "reload"			 a_reload	fadein 0.2	fadeout 0.2 					Hidden 	"ACT_VM_RELOAD" 1
-$Sequence "reload_layer" {	al_reload	fadein 0.2	fadeout 0.2 Subtract a_idle 0	Delta  	"ACT_VM_RELOAD_LAYER" 1			{	ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
+$Sequence "reload"			 a_reload	Fadein 0.2	Fadeout 0.2 					Hidden 	"ACT_VM_RELOAD" 1
+$Sequence "reload_layer" 	al_reload	Fadein 0.2	Fadeout 0.2 Subtract a_idle 0	Delta  	"ACT_VM_RELOAD_LAYER" 1			{								ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 	{ event 5004 18 "SMG.ClipOut" }
 	{ event 5004 30 "SMG.ClipIn" }
 	{ event 5004 36 "SMG.ClipLocked" }
@@ -103,22 +103,22 @@ $Sequence "reload_layer" {	al_reload	fadein 0.2	fadeout 0.2 Subtract a_idle 0	De
 	{ event 5004 60 "SMG.SlideForward" }
 }
 
-$Sequence "melee"		 	 a_melee	fadein 0	fadeout 0.2 					Hidden 	"ACT_VM_MELEE" 1
-$Sequence "melee_layer"  	al_melee	fadein 0	fadeout 0.2 Subtract a_idle 0 	Delta  	"ACT_VM_MELEE_LAYER" 1				ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
+$Sequence "melee"		 	 a_melee	Fadein 0	Fadeout 0.2 					Hidden 	"ACT_VM_MELEE" 1
+$Sequence "melee_layer"  	al_melee	Fadein 0	Fadeout 0.2 Subtract a_idle 0 	Delta  	"ACT_VM_MELEE_LAYER" 1											ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 
 //Extending Hands Begin
-$Sequence "helping_hand_extend" 			 a_hh_ext	"ACT_VM_HELPINGHAND_EXTEND" 1 			fadein 0.2 	fadeout 0
-$Sequence "helping_hand_extend_layer" 		al_hh_ext	"ACT_VM_HELPINGHAND_EXTEND_LAYER" 1 	fadein 0.2 	fadeout 0 				{ event 5004 1 "SMG.HelpingHandExtend" }
-$Sequence "helping_hand_loop" 				 a_hh_idle	"ACT_VM_HELPINGHAND_LOOP" 1 			fadein 0.2 	fadeout 0.2 	loop
-$Sequence "helping_hand_loop_layer" 		al_hh_idle	"ACT_VM_HELPINGHAND_LOOP_LAYER" 1 		fadein 0.2 	fadeout 0.2 	loop
-$Sequence "helping_hand_retract" 			 a_hh_ret	"ACT_VM_HELPINGHAND_RETRACT" 1 			fadein 0 	fadeout 0.2
-$Sequence "helping_hand_retract_layer" 		al_hh_ret	"ACT_VM_HELPINGHAND_RETRACT_LAYER" 1 	fadein 0 	fadeout 0.2 			{ event 5004 1 "SMG.HelpingHandRetract" }
-$Sequence "item_extend" 					 a_it_ext	"ACT_VM_ITEMPICKUP_EXTEND" 1 			fadein 0.2 	fadeout 0
-$Sequence "item_extend_layer" 				al_it_ext	"ACT_VM_ITEMPICKUP_EXTEND_LAYER" 1 		fadein 0.2 	fadeout 0 				{ event 5004 1 "SMG.ItemPickupExtend" }
-$Sequence "item_loop" 						 a_it_idle	"ACT_VM_ITEMPICKUP_LOOP" 1 				fadein 0.2	fadeout 0.2 	loop
-$Sequence "item_loop_layer" 				al_it_idle	"ACT_VM_ITEMPICKUP_LOOP_LAYER" 1 		fadein 0.2 	fadeout 0.2 	loop
-$Sequence "item_retract" 					 a_it_ret	"ACT_VM_ITEMPICKUP_RETRACT" 1 			fadein 0 	fadeout 0.2
-$Sequence "item_retract_layer"  			al_it_ret	"ACT_VM_ITEMPICKUP_RETRACT_LAYER" 1 	fadein 0 	fadeout 0.2 			{ event 5004 1 "SMG.ItemPickupRetract" }
+$Sequence "helping_hand_extend" 			 a_hh_ext	"ACT_VM_HELPINGHAND_EXTEND" 1 			Hidden
+$Sequence "helping_hand_extend_layer" 		al_hh_ext	"ACT_VM_HELPINGHAND_EXTEND_LAYER" 1 			Fadein 0.2 	Fadeout 0 				{ event 5004 1 "SMG.HelpingHandExtend" }
+$Sequence "helping_hand_loop" 				 a_hh_idle	"ACT_VM_HELPINGHAND_LOOP" 1 			Hidden
+$Sequence "helping_hand_loop_layer" 		al_hh_idle	"ACT_VM_HELPINGHAND_LOOP_LAYER" 1 				Fadein 0.2 	Fadeout 0.2 	loop
+$Sequence "helping_hand_retract" 			 a_hh_ret	"ACT_VM_HELPINGHAND_RETRACT" 1 			Hidden
+$Sequence "helping_hand_retract_layer" 		al_hh_ret	"ACT_VM_HELPINGHAND_RETRACT_LAYER" 1 			Fadein 0 	Fadeout 0.2 			{ event 5004 1 "SMG.HelpingHandRetract" }
+$Sequence "item_extend" 					 a_it_ext	"ACT_VM_ITEMPICKUP_EXTEND" 1 			Hidden
+$Sequence "item_extend_layer" 				al_it_ext	"ACT_VM_ITEMPICKUP_EXTEND_LAYER" 1 				Fadein 0.2 	Fadeout 0 				{ event 5004 1 "SMG.ItemPickupExtend" }
+$Sequence "item_loop" 						 a_it_idle	"ACT_VM_ITEMPICKUP_LOOP" 1 				Hidden
+$Sequence "item_loop_layer" 				al_it_idle	"ACT_VM_ITEMPICKUP_LOOP_LAYER" 1 				Fadein 0.2 	Fadeout 0.2 	loop
+$Sequence "item_retract" 					 a_it_ret	"ACT_VM_ITEMPICKUP_RETRACT" 1 			Hidden
+$Sequence "item_retract_layer"  			al_it_ret	"ACT_VM_ITEMPICKUP_RETRACT_LAYER" 1 			Fadein 0 	Fadeout 0.2 			{ event 5004 1 "SMG.ItemPickupRetract" }
 //Extending Hands End
 
 //You can add new $SEQUENCES below here. But they'll be buggy when you play online.

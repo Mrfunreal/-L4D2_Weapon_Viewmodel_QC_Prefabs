@@ -40,7 +40,7 @@ $PoseParameter "move_x" -1 1 loop 0
 
 // $ANIMATIONS - Make sure the actual animation names are as described in this qc!
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-$Animation a_idle				anims/idle 				loop ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
+$Animation a_idle				anims/idle 				loop		ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 $Animation a_look_down			anims/lookpose			frames 0 0 subtract a_idle  0
 $Animation a_look_mid			anims/lookpose			frames 1 1 subtract a_idle  0
 $Animation a_look_up			anims/lookpose			frames 2 2 subtract a_idle  0
@@ -71,7 +71,7 @@ $Animation a_it_idle			anims/it_idle			FPS 30 loop                              
 // These now useless _layers are marked with "HIDDEN //!". The other Hidden sequences are the non_layers you don't need to see in HLMV. (Except for lookpose)
 // I took the liberty to add "Subtract a_idle 0 Delta" to every visible $sequence to make blending happen. Delete where you don't want it.
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-$Sequence "deploy"						"a_deploy"									"ACT_VM_DRAW" 1									Snap		Fadeout 0.2 Subtract a_idle 0 Delta	{ event 5004 1 "Machete.Deploy" }                                                                   ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
+$Sequence "deploy"						"a_deploy"									"ACT_VM_DRAW" 1									Snap		Fadeout 0.2 Subtract a_idle 0 Delta	{ event 5004 1 "Machete.Deploy" }                                                                  	ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 $Sequence "vaims"						"a_look_down" "a_look_mid" "a_look_up"												Hidden	Blend "ver_aims" 1 -1	blendwidth 3	Delta
 $Sequence "idle"						"a_run" "a_idle" "a_run"					"ACT_VM_IDLE" 1									Blend "move_x" -1 1		blendwidth 3	Loop	AddLayer "vaims" 																					ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource 
 $Sequence "attack_ne_sw"				"a_attack_ne_sw"							"ACT_VM_PRIMARYATTACK" 1				Hidden
@@ -83,7 +83,7 @@ $Sequence "attack_w_e_layer"			"al_attack_w_e"								"ACT_VM_HITRIGHT_LAYER" 1 
 $Sequence "strong_swing"				"a_strong_swing"							"ACT_VM_SWINGHARD" 1 					Hidden
 $Sequence "strong_swing_layer"			"al_strong_swing"							"ACT_VM_SWINGHARD_LAYER" 1 						Fadein 0.2	Fadeout 0.2	Subtract a_idle 0 Delta	{ event AE_CL_CREATE_PARTICLE_EFFECT 4 "weapon_melee_blur_machete follow_attachment attach_blur" }	ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 $Sequence "secondary_attack"			"a_secondary_attack"						"ACT_VM_SECONDARYATTACK" 1				Hidden
-$Sequence "secondary_attack_layer"		"al_secondary_attack"						"ACT_VM_SECONDARYATTACK_LAYER" 1				Fadein 0.2	Fadeout 0.2	Subtract a_idle 0 Delta	                                                                                                    ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
+$Sequence "secondary_attack_layer"		"al_secondary_attack"						"ACT_VM_SECONDARYATTACK_LAYER" 1				Fadein 0.2	Fadeout 0.2	Subtract a_idle 0 Delta																				 						ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 
 //Extending Hands Begin
 $Sequence "helping_hand_extend" 		 a_hh_ext	Fadein 0.2 	Fadeout 0 			"ACT_VM_HELPINGHAND_EXTEND" 1			Hidden

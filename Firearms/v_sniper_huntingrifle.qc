@@ -50,7 +50,7 @@ $PoseParameter "move_x" -1 1 loop 0
 
 // $ANIMATIONS - Make sure the actual animation names are as described in this qc!
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-$animation a_idle		anims/idle 			loop ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
+$animation a_idle		anims/idle 			loop		ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 $animation a_look_down	anims/lookpose		frames 0 0 subtract a_idle  0
 $animation a_look_mid	anims/lookpose		frames 1 1 subtract a_idle  0
 $animation a_look_up	anims/lookpose		frames 2 2 subtract a_idle  0
@@ -77,7 +77,7 @@ $Animation a_it_idle	anims/it_idle		FPS 30 loop                                 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 $Sequence "a_sniper_arms_vaims"					a_look_down a_look_mid a_look_up 	Hidden	blend "ver_aims" 1 -1	blendwidth 3 delta
-$Sequence "sniper_idle"							a_run a_idle a_run 							blend "move_x" -1 1		blendwidth 3 addlayer "a_sniper_arms_vaims" loop "ACT_VM_IDLE_SNIPER" 1 ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
+$Sequence "sniper_idle"							a_run a_idle a_run 							blend "move_x" -1 1		blendwidth 3 addlayer "a_sniper_arms_vaims" loop "ACT_VM_IDLE_SNIPER" 1		ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
 
 $Sequence "sniper_pickup" 						a_look_mid "ACT_VM_PICKUP_SNIPER" 1 						Hidden	// Unused nonsense
 $Sequence "Sniper_pickup_layer" 				a_look_mid "ACT_VM_PICKUP_SNIPER_LAYER" 1 					Hidden	// Unused nonsense
@@ -86,8 +86,8 @@ $Sequence "Sniper_pickup_partial_layer" 		a_look_mid "ACT_VM_PICKUP_CLIPIN_SNIPE
 $Sequence "sniper_pickup_partial2" 				a_look_mid "ACT_VM_PICKUP_CHARGING_SNIPER" 1				Hidden	// Unused nonsense
 $Sequence "Sniper_pickup_partial2_layer" 		a_look_mid "ACT_VM_PICKUP_CHARGING_SNIPER_LAYER" 1 			Hidden	// Unused nonsense
 
-$Sequence "sniper_reload1"						a_reload	fadein 0.2	fadeout 0.4 					Hidden 	"ACT_VM_RELOAD_SNIPER" 1
-$Sequence "Sniper_reload_layer"					a_reload	fadein 0.2	fadeout 0.4 Subtract a_idle 0	Delta	"ACT_VM_RELOAD_SNIPER_LAYER" 1	{	ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
+$Sequence "sniper_reload1"						a_reload	Fadein 0.2	Fadeout 0.4 					Hidden 	"ACT_VM_RELOAD_SNIPER" 1
+$Sequence "Sniper_reload_layer"					a_reload	Fadein 0.2	Fadeout 0.4 Subtract a_idle 0	Delta	"ACT_VM_RELOAD_SNIPER_LAYER" 1	{	ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 	{ event 5004 18 "HuntingRifle.ClipOut" }
 	{ event 5004 61 "HuntingRifle.ClipIn" }
 	{ event 5004 80 "HuntingRifle.ClipLocked" }
@@ -103,35 +103,35 @@ $Sequence "Sniper_reload_empty_clipout_layer" 	a_look_mid "ACT_VM_RELOAD_EMPTY_C
 $Sequence "sniper_reload_empty_partial" 		a_look_mid "ACT_VM_RELOAD_EMPTY_CLIPIN_SNIPER" 1			Hidden	// Unused nonsense
 $Sequence "Sniper_reload_empty_partial_layer" 	a_look_mid "ACT_VM_RELOAD_EMPTY_CLIPIN_SNIPER_LAYER" 1		Hidden	// Unused nonsense
 
-$Sequence "sniper_draw"							a_draw		Snap		fadeout 0.2						Hidden	"ACT_VM_DEPLOY_SNIPER" 1
-$Sequence "Sniper_deploy_layer"					al_draw		Snap		fadeout 0.2 Subtract a_idle 0	Delta	"ACT_VM_DEPLOY_SNIPER_LAYER" 1	{	ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
+$Sequence "sniper_draw"							a_draw		Snap		Fadeout 0.2						Hidden	"ACT_VM_DEPLOY_SNIPER" 1
+$Sequence "Sniper_deploy_layer"					al_draw		Snap		Fadeout 0.2 Subtract a_idle 0	Delta	"ACT_VM_DEPLOY_SNIPER_LAYER" 1	{	ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 	{ event 5004 1 "HuntingRifle.Deploy" }
 	{ event 5004 28 "HuntingRifle.BoltBack" }
 	{ event 5004 39 "HuntingRifle.BoltForward" }
 }
 
-$Sequence "sniper_shoot1"						a_fire		Fadein 0.1	fadeout 0.2						Hidden	"ACT_VM_PRIMARYATTACK_SNIPER" 1
-$Sequence "Sniper_shoot_layer"					al_fire		Fadein 0.1	fadeout 0.2 Subtract a_idle 0	Delta	"ACT_VM_SHOOT_SNIPER_LAYER" 1	{	ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
+$Sequence "sniper_shoot1"						a_fire		Fadein 0.1	Fadeout 0.2						Hidden	"ACT_VM_PRIMARYATTACK_SNIPER" 1
+$Sequence "Sniper_shoot_layer"					al_fire		Fadein 0.1	Fadeout 0.2 Subtract a_idle 0	Delta	"ACT_VM_SHOOT_SNIPER_LAYER" 1	{	ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 	{ event AE_CL_CREATE_PARTICLE_BRASS 2 "weapon_shell_casing_rifle shell" }
 	{ event AE_MUZZLEFLASH 0 "1" }
 }
 
-$Sequence "sniper_melee"						a_melee		Fadein 0.1	fadeout 0.2						Hidden	"ACT_VM_MELEE_SNIPER" 1
-$Sequence "Sniper_melee_layer"					al_melee	Fadein 0.1	fadeout 0.2 Subtract a_idle 0	Delta	"ACT_VM_MELEE_SNIPER_LAYER" 1		ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
+$Sequence "sniper_melee"						a_melee		Fadein 0.1	Fadeout 0.2						Hidden	"ACT_VM_MELEE_SNIPER" 1
+$Sequence "Sniper_melee_layer"					al_melee	Fadein 0.1	Fadeout 0.2 Subtract a_idle 0	Delta	"ACT_VM_MELEE_SNIPER_LAYER" 1		ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 
 //Extending Hands Begin
-$Sequence "sniper_ItemPickup_idle"				 a_it_idle	"ACT_VM_ITEMPICKUP_LOOP_SNIPER" 1 				Hidden	fadein 0.2 	fadeout 0.2 	loop
-$Sequence "sniper_ItemPickup_idle_layer"		al_it_idle	"ACT_VM_ITEMPICKUP_LOOP_SNIPER_LAYER" 1 				fadein 0.2 	fadeout 0.2 	loop
-$Sequence "sniper_ItemPickup_extend"			 a_it_ext	"ACT_VM_ITEMPICKUP_EXTEND_SNIPER" 1 			Hidden	fadein 0.2 	fadeout 0
-$Sequence "sniper_ItemPickup_extend_layer" 		al_it_ext	"ACT_VM_ITEMPICKUP_EXTEND_SNIPER_LAYER" 1				fadein 0.2 	fadeout 0				{ event 5004 1 "HuntingRifle.ItemPickupExtend" }
-$Sequence "sniper_ItemPickup_retract"			 a_it_ret	"ACT_VM_ITEMPICKUP_RETRACT_SNIPER" 1 			Hidden	fadein 0 	fadeout 0.4
-$Sequence "sniper_ItemPickup_retract_layer"		al_it_ret	"ACT_VM_ITEMPICKUP_RETRACT_SNIPER_LAYER" 1				fadein 0 	fadeout 0.4 			{ event 5004 1 "HuntingRifle.ItemPickupRetract" }
-$Sequence "sniper_HelpingHand_idle"				 a_hh_idle	"ACT_VM_HELPINGHAND_LOOP_SNIPER" 1 				Hidden	fadein 0.2 	fadeout 0.2 	loop
-$Sequence "sniper_HelpingHand_idle_layer"		al_hh_idle	"ACT_VM_HELPINGHAND_LOOP_SNIPER_LAYER" 1 				fadein 0.2 	fadeout 0.2 	loop
-$Sequence "sniper_HelpingHand_extend" 			 a_hh_ext	"ACT_VM_HELPINGHAND_EXTEND_SNIPER" 1 			Hidden	fadein 0.2 	fadeout 0
-$Sequence "sniper_HelpingHand_extend_layer" 	al_hh_ext	"ACT_VM_HELPINGHAND_EXTEND_SNIPER_LAYER" 1 				fadein 0.2 	fadeout 0				{ event 5004 1 "HuntingRifle.HelpingHandExtend" }
-$Sequence "sniper_HelpingHand_retract"			 a_hh_ret	"ACT_VM_HELPINGHAND_RETRACT_SNIPER" 1 			Hidden	fadein 0 	fadeout 0.2
-$Sequence "sniper_HelpingHand_retract_layer" 	al_hh_ret	"ACT_VM_HELPINGHAND_RETRACT_SNIPER_LAYER" 1 			fadein 0 	fadeout 0.4 			{ event 5004 1 "HuntingRifle.HelpingHandRetract" }
+$Sequence "sniper_ItemPickup_idle"				 a_it_idle	"ACT_VM_ITEMPICKUP_LOOP_SNIPER" 1 				Hidden	Fadein 0.2 	Fadeout 0.2 	loop
+$Sequence "sniper_ItemPickup_idle_layer"		al_it_idle	"ACT_VM_ITEMPICKUP_LOOP_SNIPER_LAYER" 1 				Fadein 0.2 	Fadeout 0.2 	loop
+$Sequence "sniper_ItemPickup_extend"			 a_it_ext	"ACT_VM_ITEMPICKUP_EXTEND_SNIPER" 1 			Hidden	Fadein 0.2 	Fadeout 0
+$Sequence "sniper_ItemPickup_extend_layer" 		al_it_ext	"ACT_VM_ITEMPICKUP_EXTEND_SNIPER_LAYER" 1				Fadein 0.2 	Fadeout 0				{ event 5004 1 "HuntingRifle.ItemPickupExtend" }
+$Sequence "sniper_ItemPickup_retract"			 a_it_ret	"ACT_VM_ITEMPICKUP_RETRACT_SNIPER" 1 			Hidden	Fadein 0 	Fadeout 0.4
+$Sequence "sniper_ItemPickup_retract_layer"		al_it_ret	"ACT_VM_ITEMPICKUP_RETRACT_SNIPER_LAYER" 1				Fadein 0 	Fadeout 0.4 			{ event 5004 1 "HuntingRifle.ItemPickupRetract" }
+$Sequence "sniper_HelpingHand_idle"				 a_hh_idle	"ACT_VM_HELPINGHAND_LOOP_SNIPER" 1 				Hidden	Fadein 0.2 	Fadeout 0.2 	loop
+$Sequence "sniper_HelpingHand_idle_layer"		al_hh_idle	"ACT_VM_HELPINGHAND_LOOP_SNIPER_LAYER" 1 				Fadein 0.2 	Fadeout 0.2 	loop
+$Sequence "sniper_HelpingHand_extend" 			 a_hh_ext	"ACT_VM_HELPINGHAND_EXTEND_SNIPER" 1 			Hidden	Fadein 0.2 	Fadeout 0
+$Sequence "sniper_HelpingHand_extend_layer" 	al_hh_ext	"ACT_VM_HELPINGHAND_EXTEND_SNIPER_LAYER" 1 				Fadein 0.2 	Fadeout 0				{ event 5004 1 "HuntingRifle.HelpingHandExtend" }
+$Sequence "sniper_HelpingHand_retract"			 a_hh_ret	"ACT_VM_HELPINGHAND_RETRACT_SNIPER" 1 			Hidden	Fadein 0 	Fadeout 0.2
+$Sequence "sniper_HelpingHand_retract_layer" 	al_hh_ret	"ACT_VM_HELPINGHAND_RETRACT_SNIPER_LAYER" 1 			Fadein 0 	Fadeout 0.4 			{ event 5004 1 "HuntingRifle.HelpingHandRetract" }
 //Extending Hands End
 
 //You can add new $SEQUENCES below here. But they'll be buggy when you play online.

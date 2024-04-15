@@ -39,7 +39,7 @@ $PoseParameter "move_x" -1 1 loop 0
 
 // $ANIMATIONS - Make sure the actual animation names are as described in this qc!
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-$Animation a_idle		anims/idle 		loop ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
+$animation a_idle		anims/idle 		loop		ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
 $Animation a_look_down	anims/lookpose	frames 0 0 subtract a_idle  0
 $Animation a_look_mid	anims/lookpose	frames 1 1 subtract a_idle  0
 $Animation a_look_up	anims/lookpose	frames 2 2 subtract a_idle  0
@@ -66,13 +66,13 @@ $Animation a_melee		anims/melee		FPS 30
 // The Hidden sequences are the non_layers you don't need to see in HLMV. (Except for lookpose)
 // I took the liberty to add "Subtract a_idle 0 Delta" to every visible $sequence to make blending happen. Delete where you don't want it.
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-$Sequence "look_poses"				"a_look_down" "a_look_mid" "a_look_up"										Hidden	Blend "ver_aims" 1 -1	blendwidth 3	Delta
-$Sequence "idle_raw" 				"a_idle" 																	Hidden
-$Sequence "idle"					"a_run" "a_idle" "a_run"				"ACT_VM_IDLE_GASCAN" 1						Blend "move_x" -1 1		blendwidth 3	Loop	AddLayer "look_poses" ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
-$Sequence "deploy"					"a_deploy"								"ACT_VM_DEPLOY_GASCAN" 1			Hidden
-$Sequence "deploy_layer"			"al_deploy"								"ACT_VM_DEPLOY_GASCAN_LAYER" 1				Fadein 0.2 Fadeout 0.2	Subtract a_idle 0 Delta                 ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
-$Sequence "melee"					"a_melee"								"ACT_VM_MELEE_GASCAN" 1				Hidden
-$Sequence "melee_layer"				"al_melee"								"ACT_VM_MELEE_GASCAN_LAYER" 1				Fadein 0.2 Fadeout 0.2	Subtract a_idle 0 Delta					ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
+$Sequence "look_poses"		"a_look_down" "a_look_mid" "a_look_up"										Hidden	Blend "ver_aims" 1 -1	blendwidth 3	Delta
+$Sequence "idle_raw" 		"a_idle" 																	Hidden
+$Sequence "idle"			"a_run" "a_idle" "a_run"				"ACT_VM_IDLE_GASCAN" 1						Blend "move_x" -1 1		blendwidth 3	Loop	AddLayer "look_poses"	ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
+$Sequence "deploy"			"a_deploy"								"ACT_VM_DEPLOY_GASCAN" 1			Hidden
+$Sequence "deploy_layer"	"al_deploy"								"ACT_VM_DEPLOY_GASCAN_LAYER" 1				Fadein 0.2 Fadeout 0.2	Subtract a_idle 0 Delta							ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
+$Sequence "melee"			"a_melee"								"ACT_VM_MELEE_GASCAN" 1				Hidden
+$Sequence "melee_layer"		"al_melee"								"ACT_VM_MELEE_GASCAN_LAYER" 1				Fadein 0.2 Fadeout 0.2	Subtract a_idle 0 Delta							ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 
 //	Extending Hands Begin
 //	$Sequence "helping_hand_extend" 		 a_hh_ext	Fadein 0.2 	Fadeout 0 			"ACT_VM_HELPINGHAND_EXTEND" 1			Hidden

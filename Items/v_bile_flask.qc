@@ -54,7 +54,7 @@ $PoseParameter "move_x" -1 1 loop 0
 
 // $ANIMATIONS - Make sure the actual animation names are as described in this qc!
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-$animation a_idle		anims/idle 		loop ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
+$animation a_idle		anims/idle 		loop		ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
 $animation a_look_down	anims/lookpose	frames 0 0 subtract a_idle  0
 $animation a_look_mid	anims/lookpose	frames 1 1 subtract a_idle  0
 $animation a_look_up	anims/lookpose	frames 2 2 subtract a_idle  0
@@ -81,27 +81,27 @@ $animation a_it_idle	anims/it_idle	fps 30 loop                                  
 // I took the liberty to add "Subtract a_idle 0 Delta" to every visible $sequence to make blending happen. Delete where you don't want it.
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 $Sequence "a_molotov_arms_vaims"	a_look_down a_look_mid a_look_up													Hidden	blend "ver_aims" 1 -1	blendwidth 3	delta
-$Sequence "molotov_idle"			a_run a_idle a_run					"ACT_VM_IDLE_MOLOTOV" 1				        	     	blend "move_x" 1 -1		blendwidth 3	addlayer "a_molotov_arms_vaims" ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource 
-$Sequence "molotov_deploy"							 a_deploy			"ACT_VM_DEPLOY_MOLOTOV" 1			        	Hidden
-$Sequence "molotov_deploy_layer"					al_deploy			"ACT_VM_DEPLOY_MOLOTOV_LAYER" 1		        			snap		fadeout 0.6 subtract a_idle 0 delta	ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
-$Sequence "molotov_pullpin"							 a_pullpin			"ACT_VM_PULLPIN_MOLOTOV" 1			        	Hidden
-$Sequence "molotov_pullpin_layer"					al_pullpin			"ACT_VM_PULLPIN_MOLOTOV_LAYER" 1	        			fadein 0.2	fadeout 0.2 subtract a_idle 0 delta	ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
-$Sequence "molotov_throw"							 a_throw			"ACT_VM_THROW_MOLOTOV" 1			        	Hidden
-$Sequence "molotov_throw_layer"						al_throw			"ACT_VM_THROW_MOLOTOV_LAYER" 1		        			fadein 0.2	fadeout 0.2 subtract a_idle 0 delta	ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
-$Sequence "molotov_melee"							 a_melee			"ACT_VM_MELEE_MOLOTOV" 1			        	Hidden
-$Sequence "molotov_melee_layer"						al_melee			"ACT_VM_MELEE_MOLOTOV_LAYER" 1		        			fadein 0.1	fadeout 0.4 subtract a_idle 0 delta	ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
+$Sequence "molotov_idle"			a_run a_idle a_run					"ACT_VM_IDLE_MOLOTOV" 1							     	blend "move_x" 1 -1		blendwidth 3	addlayer "a_molotov_arms_vaims"		ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource 
+$Sequence "molotov_deploy"							 a_deploy			"ACT_VM_DEPLOY_MOLOTOV" 1						Hidden
+$Sequence "molotov_deploy_layer"					al_deploy			"ACT_VM_DEPLOY_MOLOTOV_LAYER" 1							snap		Fadeout 0.6 subtract a_idle 0 delta								ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
+$Sequence "molotov_pullpin"							 a_pullpin			"ACT_VM_PULLPIN_MOLOTOV" 1						Hidden
+$Sequence "molotov_pullpin_layer"					al_pullpin			"ACT_VM_PULLPIN_MOLOTOV_LAYER" 1						Fadein 0.2	Fadeout 0.2 subtract a_idle 0 delta								ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
+$Sequence "molotov_throw"							 a_throw			"ACT_VM_THROW_MOLOTOV" 1						Hidden
+$Sequence "molotov_throw_layer"						al_throw			"ACT_VM_THROW_MOLOTOV_LAYER" 1							Fadein 0.2	Fadeout 0.2 subtract a_idle 0 delta								ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
+$Sequence "molotov_melee"							 a_melee			"ACT_VM_MELEE_MOLOTOV" 1						Hidden
+$Sequence "molotov_melee_layer"						al_melee			"ACT_VM_MELEE_MOLOTOV_LAYER" 1							Fadein 0.1	Fadeout 0.4 subtract a_idle 0 delta								ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
 //Extending Hands Begin
 $Sequence "eq_molotov_ItemPickup_idle" 				 a_it_idle			"ACT_VM_ITEMPICKUP_LOOP_MOLOTOV" 1 				Hidden
-$Sequence "eq_molotov_ItemPickup_idle_layer" 		al_it_idle			"ACT_VM_ITEMPICKUP_LOOP_MOLOTOV_LAYER" 1 				fadein 0.2 	fadeout 0.2
+$Sequence "eq_molotov_ItemPickup_idle_layer" 		al_it_idle			"ACT_VM_ITEMPICKUP_LOOP_MOLOTOV_LAYER" 1 				Fadein 0.2 	Fadeout 0.2
 $Sequence "eq_molotov_ItemPickup_extend" 			 a_it_ext			"ACT_VM_ITEMPICKUP_EXTEND_MOLOTOV" 1 			Hidden
-$Sequence "eq_molotov_ItemPickup_extend_layer" 		al_it_ext			"ACT_VM_ITEMPICKUP_EXTEND_MOLOTOV_LAYER" 1 				fadein 0.2 	fadeout 0	{ event 5004 1 "Molotov.ItemPickupExtend" }
+$Sequence "eq_molotov_ItemPickup_extend_layer" 		al_it_ext			"ACT_VM_ITEMPICKUP_EXTEND_MOLOTOV_LAYER" 1 				Fadein 0.2 	Fadeout 0	{ event 5004 1 "Molotov.ItemPickupExtend" }
 $Sequence "eq_molotov_ItemPickup_retract" 			 a_it_ret			"ACT_VM_ITEMPICKUP_RETRACT_MOLOTOV" 1 			Hidden
-$Sequence "eq_molotov_ItemPickup_retract_layer" 	al_it_ret			"ACT_VM_ITEMPICKUP_RETRACT_MOLOTOV_LAYER" 1 			fadein 0 	fadeout 0.3 { event 5004 1 "Molotov.ItemPickupRetract" }
+$Sequence "eq_molotov_ItemPickup_retract_layer" 	al_it_ret			"ACT_VM_ITEMPICKUP_RETRACT_MOLOTOV_LAYER" 1 			Fadein 0 	Fadeout 0.3 { event 5004 1 "Molotov.ItemPickupRetract" }
 $Sequence "eq_molotov_HelpingHand_idle"				 a_hh_idle			"ACT_VM_HELPINGHAND_LOOP_MOLOTOV" 1 			Hidden
-$Sequence "eq_molotov_HelpingHand_idle_layer"		al_hh_idle			"ACT_VM_HELPINGHAND_LOOP_MOLOTOV_LAYER" 1 				fadein 0.2 	fadeout 0.2
+$Sequence "eq_molotov_HelpingHand_idle_layer"		al_hh_idle			"ACT_VM_HELPINGHAND_LOOP_MOLOTOV_LAYER" 1 				Fadein 0.2 	Fadeout 0.2
 $Sequence "eq_molotov_HelpingHand_extend"			 a_hh_ext			"ACT_VM_HELPINGHAND_EXTEND_MOLOTOV" 1 			Hidden
-$Sequence "eq_molotov_HelpingHand_extend_layer"		al_hh_ext			"ACT_VM_HELPINGHAND_EXTEND_MOLOTOV_LAYER" 1 			fadein 0.2 	fadeout 0	{ event 5004 1 "Molotov.HelpingHandExtend" }
+$Sequence "eq_molotov_HelpingHand_extend_layer"		al_hh_ext			"ACT_VM_HELPINGHAND_EXTEND_MOLOTOV_LAYER" 1 			Fadein 0.2 	Fadeout 0	{ event 5004 1 "Molotov.HelpingHandExtend" }
 $Sequence "eq_molotov_HelpingHand_retract"			 a_hh_ret			"ACT_VM_HELPINGHAND_RETRACT_MOLOTOV" 1 			Hidden
-$Sequence "eq_molotov_HelpingHand_retract_layer"	al_hh_ret			"ACT_VM_HELPINGHAND_RETRACT_MOLOTOV_LAYER" 1	 	 	fadein 0	fadeout 0.3 { event 5004 1 "Molotov.HelpingHandRetract" }
+$Sequence "eq_molotov_HelpingHand_retract_layer"	al_hh_ret			"ACT_VM_HELPINGHAND_RETRACT_MOLOTOV_LAYER" 1	 	 	Fadein 0	Fadeout 0.3 { event 5004 1 "Molotov.HelpingHandRetract" }
 //Extending Hands End
 //You can add new $SEQUENCES below here. But they'll be buggy when you play online.

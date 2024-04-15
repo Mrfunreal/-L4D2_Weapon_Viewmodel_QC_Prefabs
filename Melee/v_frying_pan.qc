@@ -39,7 +39,7 @@ $PoseParameter "move_x" -1 1 loop 0
 
 // $ANIMATIONS - Make sure the actual animation names are as described in this qc!
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-$Animation a_idle				anims/idle 			loop ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
+$Animation a_idle				anims/idle 			loop		ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 $Animation a_look_down			anims/lookpose		frames 0 0 subtract a_idle  0
 $Animation a_look_mid			anims/lookpose		frames 1 1 subtract a_idle  0
 $Animation a_look_up			anims/lookpose		frames 2 2 subtract a_idle  0
@@ -70,17 +70,17 @@ $Animation a_it_idle			anims/it_idle		FPS 30 loop                               
 // I took the liberty to add "Subtract a_idle 0 Delta" to every visible $sequence to make blending happen. Delete where you don't want it.
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 $Sequence "idle2"						"a_idle"																			Hidden //Unused
-$Sequence "deploy"						"a_deploy"									"ACT_VM_DRAW" 1									Snap		Fadeout 0.2 Subtract a_idle 0 Delta	{ event 5004 1 "Pan.Deploy" }					                                                        ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
+$Sequence "deploy"						"a_deploy"									"ACT_VM_DRAW" 1									Snap		Fadeout 0.2 Subtract a_idle 0 Delta	{ event 5004 1 "Pan.Deploy" }																			ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 $Sequence "aims"						"a_look_down" "a_look_mid" "a_look_up"												Hidden	Blend "ver_aims" 1 -1	blendwidth 3	Delta
-$Sequence "idle01"						"a_run" "a_idle" "a_run"					"ACT_VM_IDLE" 1									Blend "move_x" -1 1		blendwidth 3	Loop	AddLayer "aims" ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
+$Sequence "idle01"						"a_run" "a_idle" "a_run"					"ACT_VM_IDLE" 1									Blend "move_x" -1 1		blendwidth 3	Loop	AddLayer "aims"																							ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
 $Sequence "swing_01"					"a_swing_01"								"ACT_VM_PRIMARYATTACK" 1				Hidden
 $Sequence "swing_layer_01"				"al_swing_01"								"ACT_VM_SHOOT_LAYER" 1							Fadein 0.2	Fadeout 0.2 Subtract a_idle 0 Delta	{ event AE_CL_CREATE_PARTICLE_EFFECT 6 "weapon_melee_blur_frying_pan follow_attachment attach_blur" }	ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 $Sequence "swing_02"					"a_swing_02"								"ACT_VM_HITLEFT" 1								Fadein 0 	Fadeout 0.2 Subtract a_idle 0 Delta	{ event AE_CL_CREATE_PARTICLE_EFFECT 4 "weapon_melee_blur_frying_pan follow_attachment attach_blur" }	ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 $Sequence "swing_layer_02"				"al_swing_02"								"ACT_VM_HITLEFT_LAYER" 1				HIDDEN //!
 $Sequence "secondary_swing_02"			"a_secondary_swing_02"						"ACT_VM_SECONDARYATTACK" 1				Hidden
-$Sequence "secondary_swing_layer_01"	"al_secondary_swing_02"						"ACT_VM_SECONDARYATTACK_LAYER" 1				Fadein 0.2	Fadeout 0.2 Subtract a_idle 0 Delta	                                                                                                        ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
+$Sequence "secondary_swing_layer_01"	"al_secondary_swing_02"						"ACT_VM_SECONDARYATTACK_LAYER" 1				Fadein 0.2	Fadeout 0.2 Subtract a_idle 0 Delta																											ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 $Sequence "strong_swing"				"a_strong_swing"							"ACT_VM_SWINGHARD" 1					Hidden
-$Sequence "strong_swing_layer_01"		"al_strong_swing"							"ACT_VM_SWINGHARD_LAYER" 1						Fadein 0.2	Fadeout 0.2 Subtract a_idle 0 Delta	                                                                                                        ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
+$Sequence "strong_swing_layer_01"		"al_strong_swing"							"ACT_VM_SWINGHARD_LAYER" 1						Fadein 0.2	Fadeout 0.2 Subtract a_idle 0 Delta																											ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 
 //Extending Hands Begin
 $Sequence "helping_hand_extend" 		 a_hh_ext	Fadein 0.2 	Fadeout 0 			"ACT_VM_HELPINGHAND_EXTEND" 1			Hidden

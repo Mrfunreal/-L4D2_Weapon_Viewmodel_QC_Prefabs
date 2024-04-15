@@ -36,7 +36,7 @@ $PoseParameter "move_x" -1 1 loop 0
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 $Animation w_idle		anims/w_idle	//This is the worldmodel animation. Make sure yours is the SAME position as retail!
 
-$Animation a_idle		anims/idle 		loop ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
+$animation a_idle		anims/idle 		loop		ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource
 $Animation a_look_down	anims/lookpose	frames 0 0 subtract a_idle  0
 $Animation a_look_mid	anims/lookpose	frames 1 1 subtract a_idle  0
 $Animation a_look_up	anims/lookpose	frames 2 2 subtract a_idle  0
@@ -65,11 +65,11 @@ $Animation a_melee		anims/melee		FPS 30
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 $Sequence "idle" w_idle
 $Sequence "a_propane_vaims"	"a_look_down" "a_look_mid" "a_look_up"								Hidden	Blend "ver_aims" 1 -1	blendwidth 3	Delta
-$Sequence "propane_idle"	"a_run" "a_idle" "a_run"				"ACT_VM_IDLE_GASCAN" 1				Blend "move_x" -1 1		blendwidth 3	Loop	AddLayer "a_propane_vaims" ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource 
-$Sequence "deploy"			a_deploy								"ACT_VM_DEPLOY_GASCAN" 1			Snap		Fadeout 0.2	Subtract a_idle 0 Delta	ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
+$Sequence "propane_idle"	"a_run" "a_idle" "a_run"				"ACT_VM_IDLE_GASCAN" 1				Blend "move_x" -1 1		blendwidth 3	Loop	AddLayer "a_propane_vaims"	ikrule rhand touch weapon usesource ikrule lhand touch weapon usesource 
+$Sequence "deploy"			a_deploy								"ACT_VM_DEPLOY_GASCAN" 1			Snap		Fadeout 0.2	Subtract a_idle 0 Delta								ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 $Sequence "pullpin"			a_look_mid								"ACT_VM_PULLPIN_GASCAN" 1	Hidden	//Unused
 $Sequence "throw"			a_look_mid								"ACT_VM_THROW_GASCAN" 1		Hidden	//Unused
-$Sequence "melee"			a_melee									"ACT_VM_MELEE_GASCAN" 1				Fadein 0.2	Fadeout 0.2	Subtract a_idle 0 Delta	ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
+$Sequence "melee"			a_melee									"ACT_VM_MELEE_GASCAN" 1				Fadein 0.2	Fadeout 0.2	Subtract a_idle 0 Delta								ikrule rhand touch Weapon usesource ikrule lhand touch Weapon usesource
 
 //Extending Hands Begin
 //	$Sequence "helping_hand_extend" 		 a_hh_ext	Fadein 0.2 	Fadeout 0 			"ACT_VM_HELPINGHAND_EXTEND" 1			Hidden
