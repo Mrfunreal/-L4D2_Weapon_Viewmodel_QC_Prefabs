@@ -13,7 +13,7 @@ $CDMaterials	"Models/Weapons/Whatever" 	//This is the subfolder of "materials" w
 //--------------------------------------------------------------------------------------
 $SurfaceProp "canister"
 $Contents "solid"
-$IllumPosition 0.148 1.892 17.465
+$IllumPosition 0 0 -31 //IllumPosition changed to be the same as viewmodel arms. This should stop the gun and arms from having different brightness when entering dark areas.
 $MostlyOpaque // Or $Opaque
 $CBox 0 0 0 0 0 0
 $BBox -5.587 -3.907 -0.907 1.738 3.854 34.93

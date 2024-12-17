@@ -19,7 +19,7 @@ $Attachment "attach_blade" "ValveBiped.weapon_bone" 0 20 0 rotate 0 0 0
 //--------------------------------------------------------------------------------------
 $SurfaceProp "default"
 $Contents "solid"
-$IllumPosition -1.997 -22.976 -17.89
+$IllumPosition 0 0 -31 //IllumPosition changed to be the same as viewmodel arms. This should stop the gun and arms from having different brightness when entering dark areas.
 $MostlyOpaque // Or $Opaque
 $CBox 0 0 0 0 0 0
 $BBox 2.186 -19.006 -58.2 43.767 15.013 22.42

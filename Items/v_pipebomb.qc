@@ -15,7 +15,7 @@ $Attachment "fuse" "ValveBiped.jiggle_fuse2" -0.04 0 1.03 rotate -88.98 -180 90 
 //--------------------------------------------------------------------------------------
 $SurfaceProp "default"
 $Contents "solid"
-$IllumPosition -2.128 -17.406 -29.139
+$IllumPosition 0 0 -31 //IllumPosition changed to be the same as viewmodel arms. This should stop the gun and arms from having different brightness when entering dark areas.
 $MostlyOpaque // Or $Opaque$CBox 0 0 0 0 0 0
 $BBox 0.174 -17.348 -62 34.638 13.092 3.722
 //--------------------------------------------------------------------------------------

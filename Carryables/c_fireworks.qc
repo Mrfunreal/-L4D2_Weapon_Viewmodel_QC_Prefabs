@@ -13,7 +13,7 @@ $CDMaterials	"Models/Weapons/Whatever" 	//This is the subfolder of "materials" w
 //--------------------------------------------------------------------------------------
 $SurfaceProp "wood.fireworkCrate"
 $Contents "solid"
-$IllumPosition -0.001 0.024 0.017
+$IllumPosition 0 0 -31 //IllumPosition changed to be the same as viewmodel arms. This should stop the gun and arms from having different brightness when entering dark areas.
 $MostlyOpaque // Or $Opaque
 $CBox 0 0 0 0 0 0
 $BBox -10.731 -6.888 -2.952 10.729 7.125 2.949

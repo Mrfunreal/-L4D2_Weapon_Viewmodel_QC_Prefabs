@@ -21,7 +21,7 @@ $TextureGroup "skinfamilies"				//this weapon has skins by default. You can make
 //--------------------------------------------------------------------------------------
 $SurfaceProp "metal"
 $Contents "solid"
-$IllumPosition 0.008 0 0.001
+$IllumPosition 0 0 -31 //IllumPosition changed to be the same as viewmodel arms. This should stop the gun and arms from having different brightness when entering dark areas.
 $MostlyOpaque // Or $Opaque
 $CBox 0 0 0 0 0 0
 $BBox -3.244 -7.42 -10.719 3.35 7.171 10.616
