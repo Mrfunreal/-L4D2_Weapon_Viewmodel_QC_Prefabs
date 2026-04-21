@@ -15,5 +15,4 @@ Non-Layer sequences use animations with an A prefix, while layer sequences use t
 This is set up to prevent animations from breaking when decompiling.<br>
 I could have set these up for you beforehand, but i myself always edit the FPS, so i would always need to edit two lines for that. Just duping and renaming is quicker.
 
-
- [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/A0A11XXM4Q)
+<a href="https://ko-fi.com/A0A11XXM4Q">  <img src="https://raw.githubusercontent.com/Mrfunreal/Various/refs/heads/main/images/Ko-Fi_smaller.png" width="50%"></a><br>
